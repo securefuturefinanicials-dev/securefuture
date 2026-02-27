@@ -8,120 +8,129 @@
         :root { --navy: #002147; --gold: #D4AF37; --green: #25D366; --blue: #007bff; }
         body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f0f2f5; color: #333; }
         
-        /* Hero Section with Background Image */
+        /* Hero Header */
         .hero { 
-            background: linear-gradient(rgba(0,33,71,0.8), rgba(0,33,71,0.8)), url('https://images.unsplash.com/photo-1454165833767-027ffea9e77b?auto=format&fit=crop&w=800&q=80');
-            background-size: cover; background-position: center;
-            color: white; text-align: center; padding: 60px 20px; border-bottom: 5px solid var(--gold);
+            background: linear-gradient(rgba(0,33,71,0.85), rgba(0,33,71,0.85)), url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80');
+            background-size: cover; background-position: center; color: white; text-align: center; padding: 50px 20px; border-bottom: 5px solid var(--gold);
         }
-        .hero h1 { margin: 0; font-size: 3rem; letter-spacing: 3px; font-weight: 900; }
+        .hero h1 { margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
         
-        .container { max-width: 650px; margin: -30px auto 40px; padding: 0 15px; }
+        .container { max-width: 600px; margin: -30px auto 40px; padding: 0 15px; }
         
-        /* Section Cards */
-        .section { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 30px; overflow: hidden; }
-        .section-img { width: calc(100% + 50px); margin: -25px -25px 20px -25px; height: 150px; object-fit: cover; }
+        /* Premium Section Cards */
+        .section { background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 30px; overflow: hidden; }
+        .section-header-img { width: 100%; height: 160px; object-fit: cover; }
+        .section-body { padding: 25px; }
         
-        h2 { color: var(--navy); border-left: 5px solid var(--gold); padding-left: 15px; font-size: 20px; text-transform: uppercase; margin-bottom: 20px; }
-        
-        .quote { font-style: italic; color: #666; text-align: center; margin-bottom: 20px; padding: 15px; background: #fdfaf0; border-radius: 10px; font-size: 14px; }
+        h2 { color: var(--navy); border-left: 5px solid var(--gold); padding-left: 15px; font-size: 18px; text-transform: uppercase; margin-top: 0; }
+        .quote { font-style: italic; color: #666; font-size: 14px; margin-bottom: 20px; background: #fffdf5; padding: 10px; border-radius: 8px; }
 
-        /* Premium Buttons */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .btn { background: #fff; border: 1px solid #eee; padding: 20px 10px; border-radius: 15px; cursor: pointer; text-align: center; font-weight: 800; font-size: 14px; transition: 0.3s; color: #333; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .btn:hover { border-color: var(--gold); background: #fffdf5; transform: translateY(-5px); box-shadow: 0 12px 20px rgba(0,0,0,0.1); }
+        /* Bolder Buttons */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .btn { background: #fff; border: 2px solid #eee; padding: 18px 10px; border-radius: 15px; cursor: pointer; text-align: center; font-weight: 800; font-size: 14px; transition: 0.3s; color: #333; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .btn:hover { border-color: var(--gold); background: #fffdf5; transform: translateY(-3px); }
         
         /* Action Buttons */
-        .btn-audit { background: var(--gold); color: var(--navy); border: none; font-size: 18px; padding: 22px; width: 100%; border-radius: 15px; font-weight: 900; margin-bottom: 15px; box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
-        .btn-call { background: var(--blue); color: white; border: none; font-size: 18px; padding: 22px; width: 100%; border-radius: 15px; font-weight: 900; text-decoration: none; display: block; text-align: center; box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3); }
+        .btn-credit { background: var(--green); color: white; border: none; font-size: 18px; padding: 20px; width: 100%; border-radius: 15px; font-weight: 900; margin-bottom: 12px; cursor: pointer; }
+        .btn-audit { background: var(--gold); color: var(--navy); border: none; font-size: 18px; padding: 20px; width: 100%; border-radius: 15px; font-weight: 900; margin-bottom: 12px; cursor: pointer; }
+        .btn-call { background: var(--blue); color: white; border: none; font-size: 18px; padding: 20px; width: 100%; border-radius: 15px; font-weight: 900; text-decoration: none; display: block; text-align: center; }
 
-        /* Modal */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(8px); }
-        .modal-content { background: white; margin: 10% auto; padding: 35px; width: 85%; max-width: 400px; border-radius: 30px; text-align: center; }
-        input, textarea { width: 100%; padding: 15px; margin: 10px 0; border: 2px solid #f0f0f0; border-radius: 15px; font-size: 16px; box-sizing: border-box; }
-        .submit-btn { background: var(--green); color: white; border: none; padding: 20px; width: 100%; border-radius: 15px; font-weight: bold; font-size: 18px; cursor: pointer; }
+        /* Modal Popup */
+        .modal { display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(5px); }
+        .modal-content { background: white; margin: 15% auto; padding: 30px; width: 85%; max-width: 400px; border-radius: 25px; text-align: center; }
+        input, textarea { width: 100%; padding: 15px; margin: 10px 0; border: 2px solid #f0f0f0; border-radius: 12px; font-size: 16px; box-sizing: border-box; }
+        .submit-btn { background: var(--green); color: white; border: none; padding: 18px; width: 100%; border-radius: 12px; font-weight: bold; font-size: 18px; cursor: pointer; }
         
-        footer { text-align: center; padding: 60px 20px; background: var(--navy); color: white; border-radius: 40px 40px 0 0; }
+        footer { text-align: center; padding: 40px 20px; background: var(--navy); color: white; }
     </style>
 </head>
 <body>
 
 <div class="hero">
     <h1>ARUN</h1>
-    <p style="font-weight:bold; color:var(--gold); font-size: 1.4rem; margin-top: 10px;">SECUREFUTURE FINANCIALS</p>
-    <p style="opacity:0.9;">Professional Consulting | Chennai & Patna</p>
+    <p style="color:var(--gold); font-weight:bold; font-size: 1.2rem;">SecureFuture Financials</p>
+    <p style="font-size:14px; opacity:0.8;">Chennai | Patna</p>
 </div>
 
 <div class="container">
-    <button class="btn btn-audit" onclick="openModal('360 Financial Audit')">🚀 BOOK FREE 360° AUDIT</button>
-    <a href="tel:9080037313" class="btn btn-call">📞 CALL ARUN NOW</a>
+    <button class="btn-credit" onclick="openModal('FREE CREDIT SCORE CHECK')">📊 CHECK FREE CREDIT SCORE</button>
+    <button class="btn-audit" onclick="openModal('FREE 360 AUDIT')">🚀 BOOK FREE 360° AUDIT</button>
+    <a href="tel:9080037313" class="btn-call">📞 CALL ARUN NOW</a>
 
     <div class="section">
-        <img class="section-img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80" alt="Insurance">
-        <h2>🛡️ Insurance Solutions</h2>
-        <div class="quote">"Protect what matters most. Secure your family's future today."</div>
-        <div class="grid">
-            <button class="btn" onclick="openModal('Bike Insurance')">🛵 BIKE</button>
-            <button class="btn" onclick="openModal('Car Insurance')">🚗 CAR</button>
-            <button class="btn" onclick="openModal('Health Insurance')">🏥 HEALTH</button>
-            <button class="btn" onclick="openModal('Life Insurance')">☂️ LIFE</button>
-            <button class="btn" onclick="openModal('Marine Insurance')">🚢 MARINE</button>
-            <button class="btn" onclick="openModal('Fire Insurance')">🔥 FIRE</button>
+        <img class="section-header-img" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80">
+        <div class="section-body">
+            <h2>🛡️ Insurance Solutions</h2>
+            <p class="quote">"Don't wait for a disaster to realize the value of insurance."</p>
+            <div class="grid">
+                <button class="btn" onclick="openModal('Bike Insurance')">🛵 BIKE</button>
+                <button class="btn" onclick="openModal('Car Insurance')">🚗 CAR</button>
+                <button class="btn" onclick="openModal('Health Insurance')">🏥 HEALTH</button>
+                <button class="btn" onclick="openModal('Life Insurance')">☂️ LIFE</button>
+                <button class="btn" onclick="openModal('Comm. Vehicle')">🚛 COMMERCIAL</button>
+                <button class="btn" onclick="openModal('Fire/Marine')">🚢 FIRE & MARINE</button>
+            </div>
         </div>
     </div>
 
     <div class="section">
-        <img class="section-img" src="https://images.unsplash.com/photo-1573163281514-874606c74d84?auto=format&fit=crop&w=800&q=80" alt="Loans">
-        <h2>💰 Loans & Credit</h2>
-        <div class="quote">"Empowering your dreams with flexible and low-interest financing."</div>
-        <div class="grid">
-            <button class="btn" onclick="openModal('Personal Loan')">💵 PERSONAL</button>
-            <button class="btn" onclick="openModal('Business Loan')">🏢 BUSINESS</button>
-            <button class="btn" onclick="openModal('Home Loan')">🏠 HOME LOAN</button>
-            <button class="btn" onclick="openModal('LAP Business')">💼 LAP (BIZ)</button>
+        <img class="section-header-img" src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80">
+        <div class="section-body">
+            <h2>💰 Loans & Credit</h2>
+            <p class="quote">"Strategic financing to fuel your business and personal dreams."</p>
+            <div class="grid">
+                <button class="btn" onclick="openModal('Personal Loan')">💵 PERSONAL</button>
+                <button class="btn" onclick="openModal('Business Loan')">🏢 BUSINESS</button>
+                <button class="btn" onclick="openModal('LAP Business')">💼 LAP (BIZ)</button>
+                <button class="btn" onclick="openModal('Home Loan')">🏠 HOME LOAN</button>
+            </div>
         </div>
     </div>
 
     <div class="section">
-        <img class="section-img" src="https://images.unsplash.com/photo-1589758438368-0ad531db3366?auto=format&fit=crop&w=800&q=80" alt="Gold">
-        <h2>✨ Premium Investments</h2>
-        <div class="grid">
-            <button class="btn" onclick="openModal('24K Online Gold')">🏆 24K GOLD</button>
-            <button class="btn" onclick="openModal('Mutual Funds')">📈 MUTUAL FUNDS</button>
-            <button class="btn" onclick="openModal('Fixed Deposit')">🔒 FIXED DEPOSIT</button>
-            <button class="btn" onclick="openModal('Free Credit Score')">📊 CREDIT SCORE</button>
+        <img class="section-header-img" src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=800&q=80">
+        <div class="section-body">
+            <h2>✨ Investments</h2>
+            <div class="grid">
+                <button class="btn" onclick="openModal('24K Online Gold')">🏆 24K GOLD</button>
+                <button class="btn" onclick="openModal('Mutual Funds')">📈 MUTUAL FUNDS</button>
+                <button class="btn" onclick="openModal('Fixed Deposit')">🔒 FIXED DEPOSIT</button>
+                <button class="btn" onclick="openModal('Wealth Planning')">💎 WEALTH</button>
+            </div>
         </div>
     </div>
 </div>
 
 <div id="contactModal" class="modal">
     <div class="modal-content">
-        <h3 id="srvTitle" style="color:var(--navy); font-size: 24px; margin-bottom: 5px;">Enquiry</h3>
-        <p style="margin-bottom: 20px; color: #777;">I will contact you shortly.</p>
+        <h3 id="srvTitle" style="color:var(--navy); margin-bottom:15px;">Enquiry</h3>
         <input type="text" id="custName" placeholder="Full Name" required>
         <input type="tel" id="custPhone" placeholder="WhatsApp Number" required>
-        <textarea id="custReq" placeholder="Tell me your requirement..." rows="3"></textarea>
+        <textarea id="custReq" placeholder="How can I help you?" rows="3"></textarea>
         <button class="submit-btn" onclick="sendLead()">SUBMIT TO ARUN ✅</button>
-        <p onclick="closeModal()" style="color:red; margin-top:20px; cursor:pointer; font-weight:bold;">CLOSE</p>
+        <p onclick="closeModal()" style="color:red; margin-top:15px; cursor:pointer; font-weight:bold;">CLOSE</p>
     </div>
 </div>
 
 <footer>
     <p>📧 securefuturefinanicials@gmail.com</p>
-    <p>📞 9080037313</p>
-    <p style="margin-top: 20px; font-size: 12px; opacity: 0.5;">© 2026 SecureFuture Financials | Chennai & Patna</p>
+    <p>📞 Call/WhatsApp: 9080037313</p>
+    <p style="font-size: 12px; opacity: 0.6; margin-top: 20px;">© 2026 SecureFuture Financials. Serving Chennai & Patna.</p>
 </footer>
 
 <script>
     let activeSrv = "";
     function openModal(s) { activeSrv = s; document.getElementById("srvTitle").innerText = s; document.getElementById("contactModal").style.display = "block"; }
     function closeModal() { document.getElementById("contactModal").style.display = "none"; }
+    
     function sendLead() {
         const name = document.getElementById('custName').value;
         const phone = document.getElementById('custPhone').value;
         const note = document.getElementById('custReq').value;
-        if(!name || !phone) { alert("Please fill Name and Phone"); return; }
-        const message = `Hello Arun,%0A%0AMy Name is *${name}*. I am interested in *${activeSrv}*.%0A%0A*Phone:* ${phone}%0A*Note:* ${note}%0A%0APlease schedule a call with me.%0A%0AThank you.`;
+        if(!name || !phone) { alert("Please enter Name and Phone"); return; }
+
+        const message = `Hello Arun,%0A%0AMy Name is *${name}*. I am interested in *${activeSrv}*.%0A%0A*WhatsApp:* ${phone}%0A*Note:* ${note || 'Please share more info.'}%0A%0APlease schedule a 2-minute discovery call with me today.%0A%0ARegards.`;
+        
         window.open(`https://wa.me/919080037313?text=${message}`, '_blank');
         closeModal();
     }
