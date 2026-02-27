@@ -6,81 +6,105 @@
     <title>Arun | SecureFuture Financials</title>
     <style>
         :root { --navy: #002147; --gold: #D4AF37; --green: #25D366; }
-        body { font-family: sans-serif; margin: 0; background: #f0f2f5; color: #333; }
-        .hero { background: var(--navy); color: white; text-align: center; padding: 30px 10px; border-bottom: 5px solid var(--gold); }
-        .container { max-width: 600px; margin: auto; padding: 15px; }
-        .section { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        h2 { color: var(--navy); border-bottom: 2px solid var(--gold); font-size: 16px; margin-top: 0; padding-bottom: 5px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .btn { background: #fff; border: 1px solid #ddd; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 13px; width: 100%; text-align: left; }
-        .btn-main { background: var(--gold); color: var(--navy); text-align: center; margin-bottom: 10px; border: none; font-size: 15px; display: block; width: 100%; padding: 15px; border-radius: 8px; text-decoration: none; }
-        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); }
-        .modal-content { background: white; margin: 20% auto; padding: 20px; width: 80%; max-width: 350px; border-radius: 15px; }
-        input, textarea { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
-        .submit-btn { background: var(--green); color: white; border: none; padding: 12px; width: 100%; border-radius: 5px; font-weight: bold; font-size: 16px; cursor: pointer; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f4f7f9; color: #333; }
+        .hero { background: var(--navy); color: white; text-align: center; padding: 40px 20px; border-bottom: 5px solid var(--gold); }
+        .container { max-width: 600px; margin: 20px auto; padding: 0 15px; }
+        .section { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px; }
+        h2 { color: var(--navy); border-bottom: 3px solid var(--gold); padding-bottom: 10px; font-size: 18px; text-transform: uppercase; margin-top: 0; }
+        
+        /* BOLDER BUTTONS */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .btn { background: #fff; border: 2px solid #ddd; padding: 18px 10px; border-radius: 12px; cursor: pointer; text-align: center; font-weight: 800; font-size: 15px; transition: 0.2s; color: #000; display: block; width: 100%; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .btn:hover { border-color: var(--gold); background: #fffdf5; transform: scale(1.02); }
+        
+        .btn-audit { background: var(--gold); color: var(--navy); border: none; font-size: 18px; margin-bottom: 15px; padding: 20px; }
+        .btn-credit { border: 3px solid var(--green); color: #128C7E; margin-bottom: 25px; font-size: 16px; }
+
+        /* Modal */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); }
+        .modal-content { background: white; margin: 15% auto; padding: 30px; width: 85%; max-width: 400px; border-radius: 20px; text-align: center; }
+        input, textarea { width: 100%; padding: 15px; margin: 10px 0; border: 2px solid #eee; border-radius: 10px; font-size: 16px; box-sizing: border-box; }
+        .submit-btn { background: var(--green); color: white; border: none; padding: 18px; width: 100%; border-radius: 10px; font-weight: bold; font-size: 18px; cursor: pointer; }
+        
+        /* FOOTER RESTORED */
+        footer { text-align: center; padding: 40px 20px; background: var(--navy); color: white; margin-top: 40px; }
+        .footer-line { border-top: 1px solid rgba(255,255,255,0.2); margin: 20px 0; padding-top: 20px; }
     </style>
 </head>
 <body>
+
 <div class="hero">
     <h1>ARUN</h1>
-    <p>SecureFuture Financials | Chennai & Patna</p>
+    <p style="font-weight:bold; color:var(--gold); font-size: 1.2rem;">SecureFuture Financials</p>
+    <p style="font-size:14px; opacity:0.8;">Expert Consulting | Chennai & Patna</p>
 </div>
+
 <div class="container">
-    <button class="btn-main" onclick="openModal('360 Financial Audit')">🚀 Free 360° Financial Audit</button>
-    <button class="btn" onclick="openModal('Free Credit Score')" style="border: 2px solid var(--green); margin-bottom: 20px; text-align: center;">📊 Check Free Credit Score</button>
-    
+    <button class="btn btn-audit" onclick="openModal('360 Financial Audit')">🚀 BOOK FREE 360° AUDIT</button>
+    <button class="btn btn-credit" onclick="openModal('Free Credit Score')">📊 CHECK FREE CREDIT SCORE</button>
+
     <div class="section">
-        <h2>🛡️ Insurance Solutions</h2>
+        <h2>🛡️ Insurance</h2>
         <div class="grid">
-            <button class="btn" onclick="openModal('Bike Insurance')">🛵 Bike Insurance</button>
-            <button class="btn" onclick="openModal('Car Insurance')">🚗 Car Insurance</button>
-            <button class="btn" onclick="openModal('Health Insurance')">🏥 Health Insurance</button>
-            <button class="btn" onclick="openModal('Life Insurance')">☂️ Life Insurance</button>
-            <button class="btn" onclick="openModal('Comm. Vehicle')">🚛 Comm. Vehicle</button>
-            <button class="btn" onclick="openModal('Marine/Fire')">🚢 Marine & Fire</button>
-            <button class="btn" onclick="openModal('Workmen Comp')">👷 Workmen's Comp</button>
-            <button class="btn" onclick="openModal('Fraud Prot.')">🛡️ Fraud Prot.</button>
+            <button class="btn" onclick="openModal('Bike Insurance')">🛵 BIKE</button>
+            <button class="btn" onclick="openModal('Car Insurance')">🚗 CAR</button>
+            <button class="btn" onclick="openModal('Comm. Vehicle')">🚛 COMM. VEHICLE</button>
+            <button class="btn" onclick="openModal('Health Insurance')">🏥 HEALTH</button>
+            <button class="btn" onclick="openModal('Life Insurance')">☂️ LIFE</button>
+            <button class="btn" onclick="openModal('Personal Accident')">⚠️ ACCIDENT</button>
+            <button class="btn" onclick="openModal('Fire Insurance')">🔥 FIRE</button>
+            <button class="btn" onclick="openModal('Marine Insurance')">🚢 MARINE</button>
         </div>
     </div>
+
     <div class="section">
-        <h2>💰 Loans & Credit</h2>
+        <h2>💰 Loans & Wealth</h2>
         <div class="grid">
-            <button class="btn" onclick="openModal('Personal Loan')">💵 Personal Loan</button>
-            <button class="btn" onclick="openModal('Business Loan')">🏢 Business Loan</button>
-            <button class="btn" onclick="openModal('LAP Business')">💼 LAP Business</button>
-            <button class="btn" onclick="openModal('Home Loan')">🏠 Home Loan</button>
-        </div>
-    </div>
-    <div class="section">
-        <h2>✨ Investments</h2>
-        <div class="grid">
-            <button class="btn" onclick="openModal('Mutual Funds')">📊 Mutual Funds</button>
-            <button class="btn" onclick="openModal('24K Online Gold')">🏆 24K Gold</button>
-            <button class="btn" onclick="openModal('Fixed Deposit')">🔒 Fixed Deposit</button>
+            <button class="btn" onclick="openModal('Personal Loan')">💵 PERSONAL</button>
+            <button class="btn" onclick="openModal('Business Loan')">🏢 BUSINESS</button>
+            <button class="btn" onclick="openModal('LAP Business')">💼 LAP (BIZ)</button>
+            <button class="btn" onclick="openModal('Home Loan')">🏠 HOME LOAN</button>
+            <button class="btn" onclick="openModal('24K Online Gold')">🏆 24K GOLD</button>
+            <button class="btn" onclick="openModal('Mutual Funds')">📈 MUTUAL FUNDS</button>
         </div>
     </div>
 </div>
+
 <div id="contactModal" class="modal">
     <div class="modal-content">
-        <h3 id="stitle" style="margin-top:0">Enquiry</h3>
-        <input type="text" id="uname" placeholder="Full Name" required>
-        <input type="tel" id="uphone" placeholder="Mobile Number" required>
-        <textarea id="ureq" placeholder="Your requirements..." rows="2"></textarea>
-        <button class="submit-btn" onclick="sendW()">Submit to WhatsApp ✅</button>
-        <button onclick="closeModal()" style="background:none; border:none; color:red; margin-top:10px; width:100%; cursor:pointer;">Cancel</button>
+        <h3 id="srvTitle" style="color:var(--navy); margin-bottom:20px;">Enquiry</h3>
+        <input type="text" id="custName" placeholder="Enter Your Name" required>
+        <input type="tel" id="custPhone" placeholder="Enter Mobile Number" required>
+        <textarea id="custReq" placeholder="Briefly tell me your requirements..." rows="3"></textarea>
+        <button class="submit-btn" onclick="sendLead()">SUBMIT TO ARUN ✅</button>
+        <p onclick="closeModal()" style="color:red; margin-top:15px; cursor:pointer; font-weight:bold;">CLOSE</p>
     </div>
 </div>
+
+<footer>
+    <p>📧 securefuturefinanicials@gmail.com</p>
+    <p>📞 Call/WhatsApp: 9080037313</p>
+    <div class="footer-line">
+        <p style="font-size: 12px; opacity: 0.7;">© 2026 SecureFuture Financials. Serving Chennai & Patna, Bihar.</p>
+    </div>
+</footer>
+
 <script>
-    let srv = "";
-    function openModal(s) { srv = s; document.getElementById("stitle").innerText = s; document.getElementById("contactModal").style.display = "block"; }
+    let activeSrv = "";
+    function openModal(s) { activeSrv = s; document.getElementById("srvTitle").innerText = s; document.getElementById("contactModal").style.display = "block"; }
     function closeModal() { document.getElementById("contactModal").style.display = "none"; }
-    function sendW() {
-        const n = document.getElementById("uname").value;
-        const p = document.getElementById("uphone").value;
-        const r = document.getElementById("ureq").value;
-        if(!n || !p) { alert("Fill Name and Phone"); return; }
-        const msg = `*Website Enquiry*%0A*Service:* ${srv}%0A*Name:* ${n}%0A*Phone:* ${p}%0A*Note:* ${r}`;
-        window.open(`https://wa.me/919080037313?text=${msg}`, '_blank');
+    
+    function sendLead() {
+        const name = document.getElementById("custName").value;
+        const phone = document.getElementById("custPhone").value;
+        const note = document.getElementById("custReq").value;
+        
+        if(!name || !phone) { alert("Please enter your name and phone number"); return; }
+
+        // THE PROFESSIONAL MESSAGE TEMPLATE YOU REQUESTED
+        const message = `Hello Arun,%0A%0AMy Name is *${name}*. I am reaching out to SecureFuture Financials regarding *${activeSrv}*.%0A%0A*Phone:* ${phone}%0A*Requirements:* ${note || 'Interested in a quote'}%0A%0APlease schedule a 2-minute discovery call with me today.%0A%0ARegards.`;
+        
+        window.open(`https://wa.me/919080037313?text=${message}`, '_blank');
         closeModal();
     }
 </script>
