@@ -9,37 +9,43 @@
         :root { --navy: #001f3f; --gold: #c5a028; --white: #ffffff; --light: #f4f7f9; --green: #25D366; --blue: #007bff; }
         body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); }
 
-        /* Header Section */
+        /* Header */
         .header { background: var(--navy); color: white; text-align: center; padding: 40px 20px; border-bottom: 5px solid var(--gold); }
-        .header h1 { margin: 0; font-size: 2.2rem; letter-spacing: 1px; }
-        .header p { color: var(--gold); font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; margin-top: 5px; }
+        .header h1 { margin: 0; font-size: 2.2rem; }
+        .header p { color: var(--gold); font-weight: 700; text-transform: uppercase; font-size: 11px; margin-top: 5px; }
 
         .container { max-width: 600px; margin: 20px auto; padding: 0 15px; }
 
-        /* ACTION BUTTONS (The ones you wanted back) */
-        .btn-main { width: 100%; padding: 18px; border-radius: 12px; border: none; font-weight: 800; font-size: 15px; margin-bottom: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        /* TOP ACTION BUTTONS */
+        .btn-main { width: 100%; padding: 18px; border-radius: 12px; border: none; font-weight: 800; font-size: 15px; margin-bottom: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .btn-audit { background: var(--gold); color: var(--navy); }
         .btn-credit { background: white; color: var(--green); border: 2px solid var(--green); }
         .btn-call { background: var(--blue); color: white; }
-        .btn-brochure { background: #333; color: white; margin-top: 10px; font-size: 13px; padding: 12px; }
+        .btn-brochure { background: #333; color: white; font-size: 13px; padding: 12px; }
 
-        /* IMAGE CARDS */
+        /* SECTION TITLES */
+        .section-tag { font-weight: 900; font-size: 12px; color: #64748b; text-transform: uppercase; margin: 30px 0 15px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+
+        /* TRENDING IMAGE CARDS */
         .trend-card { background: white; border-radius: 20px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); cursor: pointer; }
         .trend-img { width: 100%; height: 180px; object-fit: cover; }
-        .trend-info { padding: 15px; text-align: left; position: relative; }
+        .trend-info { padding: 15px; position: relative; }
         .badge { background: #ff4757; color: white; font-size: 10px; padding: 3px 8px; border-radius: 10px; position: absolute; right: 15px; top: 15px; }
 
-        /* GRID */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
-        .s-card { background: white; padding: 20px; border-radius: 15px; text-align: center; border: 1px solid #eee; font-weight: 700; }
+        /* ICON GRIDS (From your original design) */
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .icon-card { background: white; padding: 25px 10px; border-radius: 15px; text-align: center; border: 1px solid #eee; cursor: pointer; transition: 0.2s; }
+        .icon-card:active { transform: scale(0.95); }
+        .icon-card img { width: 30px; height: 30px; margin-bottom: 10px; }
+        .icon-card span { display: block; font-weight: 700; font-size: 13px; }
 
         /* SMART MODAL */
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); z-index: 10000; }
         .modal-content { background: white; margin: 15% auto; padding: 25px; width: 85%; max-width: 400px; border-radius: 25px; }
-        .form-group { margin-bottom: 15px; text-align: left; }
+        .form-group { margin-bottom: 15px; }
         .form-group label { display: block; font-size: 11px; font-weight: 800; color: #666; margin-bottom: 5px; }
         .form-input { width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 10px; box-sizing: border-box; font-size: 16px; }
-        .btn-submit { background: var(--green); color: white; width: 100%; padding: 15px; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; margin-top: 10px; }
+        .btn-submit { background: var(--green); color: white; width: 100%; padding: 15px; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -50,14 +56,14 @@
 </div>
 
 <div class="container">
-    <button class="btn-main btn-audit" onclick="openLeadModal('Free 360 Audit')">🚀 BOOK FREE 360° AUDIT</button>
+    <button class="btn-main btn-audit" onclick="openModal('Free 360 Audit')">🚀 BOOK FREE 360° AUDIT</button>
     <button class="btn-main btn-credit" onclick="window.open('https://www.cibil.com/freecreditscore', '_blank')">📊 CHECK FREE CREDIT SCORE</button>
     <button class="btn-main btn-call" onclick="window.location.href='tel:+919080037313'">📞 CALL ARUN NOW</button>
     <button class="btn-main btn-brochure" onclick="handleBrochure()">📄 DOWNLOAD SERVICE BROCHURE</button>
 
-    <div style="font-weight: 900; font-size: 14px; margin: 25px 0 15px; color: #666;">FEATURED SOLUTIONS</div>
+    <div class="section-tag">Featured Insurance</div>
 
-    <div class="trend-card" onclick="openLeadModal('Bike Insurance')">
+    <div class="trend-card" onclick="openModal('Bike Insurance')">
         <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80" class="trend-img">
         <div class="trend-info">
             <span class="badge">TRENDING</span>
@@ -66,7 +72,7 @@
         </div>
     </div>
 
-    <div class="trend-card" onclick="openLeadModal('Term Insurance')">
+    <div class="trend-card" onclick="openModal('Term Life Insurance')">
         <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=800&q=80" class="trend-img">
         <div class="trend-info">
             <span class="badge">POPULAR</span>
@@ -75,17 +81,26 @@
         </div>
     </div>
 
+    <div class="section-tag">Insurance Portfolio</div>
     <div class="grid">
-        <div class="s-card" onclick="openLeadModal('Car Insurance')">🚗<br>Car</div>
-        <div class="s-card" onclick="openLeadModal('Health Insurance')">🏥<br>Health</div>
-        <div class="s-card" onclick="openLeadModal('Home Loan')">🏠<br>Home Loan</div>
-        <div class="s-card" onclick="openLeadModal('Business Loan')">🏢<br>Business</div>
+        <div class="icon-card" onclick="openModal('Health Insurance')">🏥<span>Health</span></div>
+        <div class="icon-card" onclick="openModal('Life Insurance')">☂️<span>Life</span></div>
+        <div class="icon-card" onclick="openModal('Car Insurance')">🚗<span>Car</span></div>
+        <div class="icon-card" onclick="openModal('Commercial Insurance')">🚛<span>Commercial</span></div>
+    </div>
+
+    <div class="section-tag">Investment & Finance</div>
+    <div class="grid">
+        <div class="icon-card" onclick="openModal('Mutual Funds')">📈<span>Mutual Funds</span></div>
+        <div class="icon-card" onclick="openModal('24K Gold')">🏆<span>24K Gold</span></div>
+        <div class="icon-card" onclick="openModal('Business Loan')">🏢<span>Business Loan</span></div>
+        <div class="icon-card" onclick="openModal('Home Loan')">🏠<span>Home Loan</span></div>
     </div>
 </div>
 
 <div id="leadModal" class="modal">
     <div class="modal-content">
-        <h2 id="modalTitle" style="margin-top:0;">Request Callback</h2>
+        <h2 id="modalTitle" style="margin-top:0;">Enquiry</h2>
         <div class="form-group">
             <label>YOUR NAME</label>
             <input type="text" id="custName" class="form-input" placeholder="Enter Full Name">
@@ -93,45 +108,41 @@
 
         <div id="vehicleSection" style="display:none;">
             <div class="form-group">
-                <label>BIKE/CAR REGISTRATION NUMBER</label>
+                <label>VEHICLE REGISTRATION NUMBER</label>
                 <input type="text" id="regNo" class="form-input" placeholder="Ex: TN 01 AB 1234">
             </div>
-            <p style="font-size: 11px; color: #d9534f; font-weight: bold;">* Note: Please share a photo of your RC or Old Policy on WhatsApp for a quick quote.</p>
+            <p style="font-size: 11px; color: #d9534f; font-weight: bold;">* Required: Share RC/Policy copy on WhatsApp next.</p>
         </div>
 
         <button class="btn-submit" onclick="submitToWA()">Submit to WhatsApp ✅</button>
-        <p onclick="closeModal()" style="text-align:center; color: #999; cursor: pointer; margin-top: 15px; font-weight: bold;">CLOSE</p>
+        <p onclick="closeModal()" style="text-align:center; color: #999; cursor: pointer; margin-top: 15px; font-weight: bold;">BACK</p>
     </div>
 </div>
 
 <script>
-    let currentService = "";
+    let currentSrv = "";
 
-    function openLeadModal(service) {
-        currentService = service;
-        document.getElementById('modalTitle').innerText = service;
+    function openModal(srv) {
+        currentSrv = srv;
+        document.getElementById('modalTitle').innerText = srv;
         document.getElementById('leadModal').style.display = 'block';
         
         const vSec = document.getElementById('vehicleSection');
-        if(service.includes('Bike') || service.includes('Car')) {
+        if(srv.includes('Bike') || srv.includes('Car')) {
             vSec.style.display = 'block';
         } else {
             vSec.style.display = 'none';
         }
     }
 
-    function closeModal() {
-        document.getElementById('leadModal').style.display = 'none';
-    }
+    function closeModal() { document.getElementById('leadModal').style.display = 'none'; }
 
     function handleBrochure() {
         const link = document.createElement('a');
         link.href = 'SecureFuture_Brochure.pdf'; 
         link.download = 'SecureFuture_Financials.pdf';
         link.click();
-        
-        const msg = encodeURIComponent("Hi Arun, I just downloaded your brochure and I'm interested in your financial services.");
-        window.open(`https://wa.me/919080037313?text=${msg}`, '_blank');
+        window.open(`https://wa.me/919080037313?text=Hi Arun, I just downloaded your brochure from the website.`, '_blank');
     }
 
     function submitToWA() {
@@ -139,12 +150,11 @@
         const reg = document.getElementById('regNo').value;
         if(!name) { alert("Please enter your name"); return; }
 
-        let message = `*Website Inquiry*%0A*Service:* ${currentService}%0A*Name:* ${name}`;
-        if(currentService.includes('Bike') || currentService.includes('Car')) {
-            message += `%0A*Reg Number:* ${reg}%0A_I will share my RC copy now._`;
+        let msg = `*New Inquiry*%0A*Service:* ${currentSrv}%0A*Name:* ${name}`;
+        if(currentSrv.includes('Bike') || currentSrv.includes('Car')) {
+            msg += `%0A*Reg No:* ${reg}%0A_I will share my documents now._`;
         }
-
-        window.open(`https://wa.me/919080037313?text=${message}`, '_blank');
+        window.open(`https://wa.me/919080037313?text=${msg}`, '_blank');
         closeModal();
     }
 </script>
