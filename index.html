@@ -10,19 +10,23 @@
         :root { --navy: #001f3f; --gold: #c5a028; --light: #f4f7f9; --green: #25D366; --red: #ff4757; --blue: #007bff; }
         body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); padding-bottom: 140px; }
         
+        /* LOGO STYLING */
+        .logo-container { text-align: center; padding-top: 20px; background: var(--navy); }
+        .main-logo { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--gold); object-fit: cover; background: white; }
+
         .market-bar { background: #000; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
-        .header { background: var(--navy); color: white; text-align: center; padding: 45px 20px; border-bottom: 5px solid var(--gold); }
-        .header h1 { margin: 0; font-size: 28px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+        .header { background: var(--navy); color: white; text-align: center; padding: 20px 20px 45px; border-bottom: 5px solid var(--gold); }
+        .header h1 { margin: 10px 0 0; font-size: 28px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
         .header p { color: var(--gold); font-weight: 700; margin-top: 8px; font-size: 14px; }
 
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
 
-        /* TOP ACTIONS */
+        /* ACTION BUTTONS */
         .action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0; }
         .btn-top { padding: 16px; border-radius: 10px; border: none; color: white; font-weight: 800; cursor: pointer; text-decoration: none; text-align: center; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 8px; }
 
         /* MARKET WIDGET */
-        .market-widget { background: white; border-radius: 15px; overflow: hidden; border: 1px solid #ddd; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .market-widget { background: white; border-radius: 15px; overflow: hidden; border: 1px solid #ddd; margin-bottom: 20px; }
 
         /* CALCULATORS */
         .section-tag { font-weight: 900; font-size: 12px; text-transform: uppercase; margin: 30px 0 12px; display: block; border-left: 4px solid var(--gold); padding-left: 10px; color: var(--navy); }
@@ -34,12 +38,11 @@
 
         /* SERVICE GRID */
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-        .card { background: white; padding: 25px 10px; border-radius: 15px; text-align: center; border: 1px solid #eee; cursor: pointer; transition: 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
-        .card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .card { background: white; padding: 25px 10px; border-radius: 15px; text-align: center; border: 1px solid #eee; cursor: pointer; transition: 0.2s; }
         .card i { font-size: 24px; color: var(--gold); margin-bottom: 10px; display: block; }
         .card span { font-weight: 800; font-size: 14px; display: block; }
 
-        /* REFERRAL BUTTON */
+        /* REFERRAL CARD */
         .refer-card { background: linear-gradient(135deg, var(--navy), #004080); color: white; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 25px; border: 2px dashed var(--gold); cursor: pointer; }
 
         /* FLOATING INQUIRY */
@@ -49,15 +52,15 @@
 
         /* MODAL */
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 10000; padding: 20px; overflow-y: auto; }
-        .modal-content { background: white; max-width: 450px; margin: 5% auto; border-radius: 20px; padding: 30px; position: relative; }
-        .modal-input { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px; font-family: inherit; font-size: 15px; box-sizing: border-box; }
+        .modal-content { background: white; max-width: 450px; margin: 5% auto; border-radius: 20px; padding: 30px; }
+        .modal-input { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px; font-family: inherit; }
         .field-label { font-size: 11px; font-weight: 800; text-transform: uppercase; color: #666; margin-bottom: 5px; display: block; }
 
         .footer { background: var(--navy); color: white; text-align: center; padding: 50px 20px; }
         .social-bar { display: flex; justify-content: center; gap: 25px; margin-bottom: 25px; }
         .social-bar a { color: var(--gold); font-size: 22px; }
         .footer-btn { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin: 10px 0; display: block; color: white; text-decoration: none; font-weight: 600; font-size: 14px; border: 1px solid rgba(255,255,255,0.1); }
-        .wa-float { position: fixed; bottom: 85px; right: 20px; background: var(--green); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; color: white; text-decoration: none; z-index: 1050; }
+        .wa-float { position: fixed; bottom: 85px; right: 20px; background: var(--green); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; color: white; z-index: 1050; }
     </style>
 </head>
 <body>
@@ -71,9 +74,13 @@
     </div>
 </div>
 
+<div class="logo-container">
+    <img src="logo.png" alt="SecureFuture Logo" class="main-logo" onerror="this.src='https://via.placeholder.com/100?text=SF'">
+</div>
+
 <div class="header">
     <h1>SECUREFUTURE FINANCIALS</h1>
-    <p>Premium Financial Consulting | Chennai & Patna</p>
+    <p>Expert Consulting | Chennai & Patna</p>
 </div>
 
 <div class="container">
@@ -89,19 +96,19 @@
         <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
-            { "colorTheme": "light", "dateRange": "12M", "exchange": "BSE", "showChart": true, "locale": "in", "width": "100%", "height": 400, "largeChartUrl": "", "isTransparent": false, "showSymbolLogo": true, "showFloatingTooltip": false, "plotLineColorGrowing": "rgba(41, 98, 255, 1)", "plotLineColorFalling": "rgba(41, 98, 255, 1)", "gridLineColor": "rgba(240, 243, 250, 0)", "scaleFontColor": "rgba(106, 109, 120, 1)", "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)", "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)", "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)", "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)", "symbolActiveColor": "rgba(41, 98, 255, 0.12)" }
+            { "colorTheme": "light", "exchange": "BSE", "showChart": true, "locale": "in", "width": "100%", "height": 400 }
             </script>
         </div>
     </div>
 
-    <span class="section-tag">EMI & Wealth Calculators</span>
+    <span class="section-tag">Smart Calculators</span>
     <div class="calc-card">
         <div class="calc-row">
             <div class="calc-group"><label>SIP Amount</label><input type="number" id="sipA" class="calc-input" value="5000" oninput="doSIP()"></div>
             <div class="calc-group"><label>Return %</label><input type="number" id="sipR" class="calc-input" value="12" oninput="doSIP()"></div>
             <div class="calc-group"><label>Years</label><input type="number" id="sipY" class="calc-input" value="10" oninput="doSIP()"></div>
         </div>
-        <div class="calc-res" id="sipRes">FUTURE VALUE: ₹ 11,61,695</div>
+        <div class="calc-res" id="sipRes">Future Value: ₹ 11,61,695</div>
     </div>
 
     <div class="calc-card">
@@ -110,62 +117,55 @@
             <div class="calc-group"><label>Rate %</label><input type="number" id="emiR" class="calc-input" value="9" oninput="doEMI()"></div>
             <div class="calc-group"><label>Years</label><input type="number" id="emiY" class="calc-input" value="15" oninput="doEMI()"></div>
         </div>
-        <div class="calc-res" id="emiRes">MONTHLY EMI: ₹ 10,143</div>
+        <div class="calc-res" id="emiRes">Monthly EMI: ₹ 10,143</div>
     </div>
 
     <div class="refer-card" onclick="openModal('Referral')">
-        <i class="fa fa-gift" style="font-size: 24px; color: var(--gold); margin-bottom: 8px; display: block;"></i>
-        <strong style="font-size: 16px;">REFER A FRIEND & EARN</strong>
-        <p style="font-size: 11px; margin-top: 5px; opacity: 0.8;">Click to generate your unique referral link</p>
+        <i class="fa fa-gift"></i>
+        <strong>REFER A FRIEND & EARN</strong>
+        <p style="font-size: 11px; margin-top: 5px;">Generate your unique referral link</p>
     </div>
 
-    <span class="section-tag">Insurance Portfolio</span>
+    <span class="section-tag">Insurance & Investment Portfolio</span>
     <div class="grid">
         <div class="card" onclick="openModal('Health')"><i class="fa fa-heartbeat"></i><span>Health Insurance</span></div>
         <div class="card" onclick="openModal('Term Life')"><i class="fa fa-shield-alt"></i><span>Term Life</span></div>
         <div class="card" onclick="openModal('Bike')"><i class="fa fa-motorcycle"></i><span>Bike Insurance</span></div>
         <div class="card" onclick="openModal('Car')"><i class="fa fa-car"></i><span>Car Insurance</span></div>
-    </div>
-
-    <span class="section-tag">Financial Planning & Loans</span>
-    <div class="grid">
-        <div class="card" onclick="openModal('Bonds')"><i class="fa fa-file-invoice-dollar"></i><span>Bonds</span></div>
-        <div class="card" onclick="openModal('Unlisted Shares')"><i class="fa fa-chart-line"></i><span>Unlisted Shares</span></div>
-        <div class="card" onclick="openModal('Fixed Deposit')"><i class="fa fa-vault"></i><span>FD / Savings</span></div>
-        <div class="card" onclick="openModal('Mutual Funds')"><i class="fa fa-chart-pie"></i><span>Mutual Funds</span></div>
-        <div class="card" onclick="openModal('24K Gold')"><i class="fa fa-coins"></i><span>24K Digital Gold</span></div>
-        <div class="card" onclick="openModal('Home Loan')"><i class="fa fa-home"></i><span>Home Loan</span></div>
-        <div class="card" onclick="openModal('Business Loan')"><i class="fa fa-briefcase"></i><span>Business Loan</span></div>
         <div class="card" onclick="openModal('Commercial')"><i class="fa fa-truck"></i><span>Commercial Ins.</span></div>
+        <div class="card" onclick="openModal('Fire')"><i class="fa fa-fire"></i><span>Fire Insurance</span></div>
+        <div class="card" onclick="openModal('Mutual Funds')"><i class="fa fa-chart-pie"></i><span>Mutual Funds</span></div>
+        <div class="card" onclick="openModal('24K Gold')"><i class="fa fa-coins"></i><span>24K Gold</span></div>
+        <div class="card" onclick="openModal('Business Loan')"><i class="fa fa-briefcase"></i><span>Business Loan</span></div>
+        <div class="card" onclick="openModal('Home Loan')"><i class="fa fa-home"></i><span>Home Loan</span></div>
     </div>
 </div>
 
 <div class="floating-inquiry">
-    <input type="text" id="flName" class="float-input" placeholder="Your Name">
-    <input type="text" id="flReq" class="float-input" placeholder="Requirement...">
-    <button class="float-submit" onclick="sendInquiry('Float')">SEND <i class="fab fa-whatsapp"></i></button>
+    <input type="text" id="flName" class="float-input" placeholder="Full Name">
+    <input type="text" id="flReq" class="float-input" placeholder="Requirement (e.g. Car Insurance)">
+    <button class="float-submit" onclick="sendInquiry('Float')">Send to WhatsApp ✅</button>
 </div>
 
 <div id="modalBox" class="modal">
     <div class="modal-content">
-        <h2 id="modalTitle" style="margin-top:0; color:var(--navy); font-weight:900;">Enquiry</h2>
+        <h2 id="modalTitle" style="color:var(--navy);">Enquiry</h2>
         <div id="modalFields"></div>
-        <button id="modalSubmitBtn" class="float-submit" style="width:100%; padding:18px; font-size:16px;" onclick="sendInquiry('Modal')">SEND TO WHATSAPP ✅</button>
-        <p onclick="closeModal()" style="text-align:center; color:red; cursor:pointer; margin-top:20px; font-weight:800; font-size:12px;">CLOSE</p>
+        <button id="modalSubmitBtn" class="float-submit" style="width:100%; padding:18px;" onclick="sendInquiry('Modal')">SEND TO WHATSAPP</button>
+        <p onclick="closeModal()" style="text-align:center; color:red; cursor:pointer; margin-top:20px;">CLOSE</p>
     </div>
 </div>
 
-<a href="https://wa.me/919080037313" class="wa-float"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/919080037313" class="wa-float" style="text-decoration:none; display:flex; align-items:center; justify-content:center; color:white;"><i class="fab fa-whatsapp"></i></a>
 
 <footer class="footer">
-    <h2 style="font-weight:900; margin-bottom:20px;">SECUREFUTURE</h2>
+    <h2>SECUREFUTURE</h2>
     <div class="social-bar">
-        <a href="#"><i class="fab fa-instagram"></i></a>
         <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
     <a href="mailto:securefuturefinanicials@gmail.com" class="footer-btn">securefuturefinanicials@gmail.com</a>
-    <a href="tel:+919080037313" class="footer-btn">+91 90800 37313</a>
+    <a href="tel:+919080037313" class="footer-btn">Call: +91 90800 37313</a>
     <p style="font-size:11px; opacity:0.5; margin-top:30px;">© 2026 SECUREFUTURE FINANCIALS</p>
 </footer>
 
@@ -182,15 +182,10 @@
             fields = `<span class="field-label">Your Name (Referrer)</span><input id="uName" class="modal-input" placeholder="Enter your name">`;
             document.getElementById('modalSubmitBtn').innerText = "GENERATE MY LINK";
         } else if(service === 'Bike' || service === 'Car' || service === 'Commercial') {
-            fields += `<span class="field-label">Registration Number</span><input id="uReg" class="modal-input" placeholder="e.g. TN-01-AB-1234">`;
-            fields += `<span class="field-label">Upload RC Book (Optional)</span><input type="file" class="modal-input">`;
+            fields += `<span class="field-label">Reg Number</span><input id="uReg" class="modal-input" placeholder="e.g. TN-01-AB-1234">`;
         } else if(service === 'Term Life') {
-            fields += `<span class="field-label">Phone Number</span><input id="uPhone" class="modal-input" type="tel">`;
             fields += `<span class="field-label">Age</span><input id="uAge" class="modal-input" type="number">`;
             fields += `<span class="field-label">Monthly Salary</span><input id="uSal" class="modal-input" type="number">`;
-            fields += `<span class="field-label">Smoker?</span><select id="uSmoke" class="modal-input"><option>No</option><option>Yes</option></select>`;
-        } else {
-            fields += `<span class="field-label">Details</span><textarea id="uDetail" class="modal-input" style="height:80px;"></textarea>`;
         }
         document.getElementById('modalFields').innerHTML = fields;
         document.getElementById('modalBox').style.display = 'block';
@@ -207,12 +202,10 @@
         if(activeService === 'Referral') {
             let mySite = window.location.href.split('?')[0];
             let refLink = `${mySite}?ref=${encodeURIComponent(name)}`;
-            let msg = `*SecureFuture Referral*%0AHi, I want to refer friends. My unique link is: ${refLink}`;
-            window.open(`https://wa.me/919080037313?text=${msg}`, '_blank');
+            window.open(`https://wa.me/919080037313?text=*Referral Link Request*%0AMy Link: ${refLink}`, '_blank');
         } else {
             let msg = `*Service:* ${activeService}%0A*Name:* ${name}%0A*Referred By:* ${refParam}`;
-            if(document.getElementById('uReg')) msg += `%0A*Reg:* ${document.getElementById('uReg').value}`;
-            if(document.getElementById('uAge')) msg += `%0A*Age:* ${document.getElementById('uAge').value}%0A*Salary:* ${document.getElementById('uSal').value}%0A*Smoker:* ${document.getElementById('uSmoke').value}`;
+            if(source === 'Float') msg = `*Quick Inquiry*%0A*Name:* ${name}%0A*Requirement:* ${document.getElementById('flReq').value}`;
             window.open(`https://wa.me/919080037313?text=${msg}`, '_blank');
         }
         closeModal();
@@ -221,13 +214,13 @@
     function doSIP() {
         let p = document.getElementById('sipA').value, r = document.getElementById('sipR').value/12/100, n = document.getElementById('sipY').value*12;
         let res = p * ((Math.pow(1+r, n)-1)/r) * (1+r);
-        document.getElementById('sipRes').innerText = "FUTURE VALUE: ₹ " + Math.round(res).toLocaleString('en-IN');
+        document.getElementById('sipRes').innerText = "Future Value: ₹ " + Math.round(res).toLocaleString('en-IN');
     }
 
     function doEMI() {
         let p = document.getElementById('emiA').value, r = document.getElementById('emiR').value/12/100, n = document.getElementById('emiY').value*12;
         let emi = p * r * Math.pow(1+r, n) / (Math.pow(1+r, n)-1);
-        document.getElementById('emiRes').innerText = "MONTHLY EMI: ₹ " + Math.round(emi).toLocaleString('en-IN');
+        document.getElementById('emiRes').innerText = "Monthly EMI: ₹ " + Math.round(emi).toLocaleString('en-IN');
     }
 </script>
 </body>
