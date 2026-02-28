@@ -18,7 +18,7 @@
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); display: flex; flex-direction: column; min-height: 100vh; }
 
-        /* FIXED LOGO & HEADER */
+        /* FIXED SQUARE LOGO & HEADER */
         .header { 
             background: var(--gradient); 
             color: white; 
@@ -34,25 +34,26 @@
             margin-bottom: 15px;
         }
         .logo-box { 
-            width: 100px; 
-            height: 100px; 
-            border-radius: 50%; 
-            border: 4px solid var(--gold); 
+            width: 120px; /* Slightly larger for square look */
+            height: 120px; 
+            border-radius: 12px; /* Smooth square corners */
+            border: 3px solid var(--gold); 
             background: white; 
             overflow: hidden; 
             display: flex; 
             align-items: center; 
             justify-content: center;
-            box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
-        /* Fixed Image Logic */
+        /* LOGO IMAGE FIX */
         .logo-box img { 
             width: 100%; 
             height: 100%; 
-            object-fit: cover; /* Ensures logo fills the circle properly */
+            object-fit: contain; /* Shows full logo without cropping */
+            padding: 5px; /* Slight breathing room inside square */
         }
         
-        .header h1 { margin: 0; font-size: 24px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
+        .header h1 { margin: 10px 0 0; font-size: 24px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
         
         .promo-quote {
             background: rgba(255, 255, 255, 0.1);
@@ -117,7 +118,7 @@
 <div class="header">
     <div class="logo-container">
         <div class="logo-box">
-            <img src="logo.jpeg" alt="Logo" onerror="this.src='https://via.placeholder.com/150/FFFFFF/001f3f?text=SF'">
+            <img src="logo.jpeg" alt="SecureFuture Logo" onerror="this.src='https://via.placeholder.com/150/FFFFFF/001f3f?text=SF+LOGO'">
         </div>
     </div>
     <h1>SECUREFUTURE FINANCIALS</h1>
@@ -177,7 +178,7 @@
         <h3 id="mTitle" style="margin-top:0; color:var(--navy);">Inquiry</h3>
         <input type="text" id="fName" class="form-input" placeholder="Your Name">
         <input type="text" id="fReq" class="form-input" placeholder="Specific Requirement">
-        <button class="btn-submit" onclick="submitLead()">Submit to WhatsApp ✅</button>
+        <button style="background:var(--navy); color:white; width:100%; padding:18px; border:none; border-radius:15px; font-weight:900; cursor:pointer;" onclick="submitLead()">Submit to WhatsApp ✅</button>
         <p onclick="closeModal()" style="text-align:center; color:red; cursor:pointer; margin-top:15px; font-weight:700; font-size:14px;">Cancel</p>
     </div>
 </div>
@@ -191,20 +192,13 @@
 
 <script>
     let currentS = "";
-    function openLeadModal(s) {
-        currentS = s;
-        document.getElementById('mTitle').innerText = s;
-        document.getElementById('leadModal').style.display = 'block';
-    }
+    function openLeadModal(s) { currentS = s; document.getElementById('mTitle').innerText = s; document.getElementById('leadModal').style.display = 'block'; }
     function closeModal() { document.getElementById('leadModal').style.display = 'none'; }
-    
     function goWA(s) { window.open(`https://wa.me/919080037313?text=Hi, I would like to ${s}.`, '_blank'); }
-
     function referFriend() {
         const msg = encodeURIComponent(`Secure your future with the best discounts! Check out SecureFuture Financials: ${window.location.href}`);
         window.open(`https://wa.me/?text=${msg}`, '_blank');
     }
-
     function submitLead() {
         const name = document.getElementById('fName').value;
         const req = document.getElementById('fReq').value;
@@ -213,7 +207,6 @@
         window.open(`https://wa.me/919080037313?text=${msg}`, '_blank');
         closeModal();
     }
-
     function cS() {
         let p = parseFloat(document.getElementById('sA').value), i = parseFloat(document.getElementById('sR').value)/12/100, n = parseFloat(document.getElementById('sY').value)*12;
         if(p && i && n) document.getElementById('sO').innerText = "₹ " + Math.round(p * ((Math.pow(1+i,n)-1)/i) * (1+i)).toLocaleString('en-IN');
