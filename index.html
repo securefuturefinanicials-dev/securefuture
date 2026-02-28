@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SecureFuture Financials | Premier Consulting</title>
+    <title>SecureFuture Financials | Live Market Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
     <style>
         :root { --navy: #001f3f; --gold: #c5a028; --white: #ffffff; --light: #f4f7f9; --green: #25D366; --blue: #007bff; --slate: #64748b; }
         * { box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); overflow-x: hidden; }
 
-        /* STOCK TICKER */
-        .ticker-wrap { background: #000; color: #0f0; padding: 10px 0; overflow: hidden; font-family: monospace; font-size: 13px; border-bottom: 2px solid var(--gold); }
-        .ticker { display: inline-block; white-space: nowrap; animation: marquee 30s linear infinite; }
-        @keyframes marquee { 0% { transform: translate(100%, 0); } 100% { transform: translate(-100%, 0); } }
+        /* LIVE TICKER CONTAINER */
+        .live-market-bar { background: #000; padding: 5px 0; border-bottom: 2px solid var(--gold); }
 
         /* WELCOME OVERLAY */
         #welcomeOverlay { position: fixed; inset: 0; background: rgba(0,31,63,0.98); z-index: 20000; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; padding: 20px; transition: 0.8s; }
@@ -22,11 +20,11 @@
 
         /* HEADER */
         .header { background: var(--navy); color: white; text-align: center; padding: 40px 20px; border-bottom: 5px solid var(--gold); }
-        .header h1 { margin: 0; font-size: 26px; font-weight: 900; text-transform: uppercase; }
+        .header h1 { margin: 0; font-size: 26px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
 
         .container { width: 100%; max-width: 600px; margin: 0 auto; padding: 25px 15px; }
 
-        /* BUTTONS & CARDS */
+        /* CARDS & SECTIONS */
         .section-tag { font-weight: 900; font-size: 11px; color: var(--slate); text-transform: uppercase; margin: 25px 0 10px; display: block; border-left: 4px solid var(--gold); padding-left: 10px; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .icon-card { background: white; padding: 20px 10px; border-radius: 12px; text-align: center; border: 1px solid #e2e8f0; cursor: pointer; font-weight: 700; transition: 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
@@ -37,7 +35,7 @@
         .calc-card { background: var(--navy); color: white; padding: 20px; border-radius: 15px; margin-bottom: 15px; border-bottom: 4px solid var(--gold); }
         .calc-group { margin-bottom: 10px; }
         .calc-group label { display: block; font-size: 10px; opacity: 0.8; font-weight: 700; margin-bottom: 3px; }
-        .calc-input { width: 100%; padding: 10px; border-radius: 6px; border: none; font-size: 14px; font-weight: 700; background: rgba(255,255,255,0.1); color: white; }
+        .calc-input { width: 100%; padding: 10px; border-radius: 6px; border: none; font-size: 14px; font-weight: 700; background: rgba(255,255,255,0.1); color: white; outline: none; }
         .res-box { background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center; margin-top: 10px; }
         .res-box b { font-size: 16px; color: var(--gold); }
 
@@ -46,8 +44,8 @@
 
         /* MODAL */
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 10000; padding: 20px; overflow-y: auto; }
-        .modal-content { background: white; max-width: 450px; margin: 10% auto; border-radius: 20px; padding: 25px; position: relative; }
-        .form-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 12px; }
+        .modal-content { background: white; max-width: 450px; margin: 10% auto; border-radius: 20px; padding: 25px; }
+        .form-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 12px; font-family: inherit; }
 
         .footer-pro { background: var(--navy); color: white; text-align: center; padding: 40px 20px; border-top: 5px solid var(--gold); }
         .footer-btn { display: block; background: rgba(255,255,255,0.08); color: white; text-decoration: none; padding: 15px; margin: 10px auto; border-radius: 8px; font-weight: 700; border: 1px solid rgba(255,255,255,0.1); }
@@ -55,22 +53,38 @@
 </head>
 <body onload="initWelcome()">
 
-<div class="ticker-wrap">
-    <div class="ticker">
-        NIFTY 50: 22,147.50 (+0.45%) | SENSEX: 72,831.94 (+0.52%) | RELIANCE: 2,987.00 | HDFC BANK: 1,422.50 | GOLD: ₹72,450/10g | SILVER: ₹84,200/kg
+<div class="live-market-bar">
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+        "symbols": [
+            {"proName": "FOREXCOM:NSXUSD", "title": "NIFTY 50"},
+            {"proName": "INDEX:SENSEX", "title": "SENSEX"},
+            {"proName": "OANDA:XAUUSD", "title": "GOLD (24K)"},
+            {"proName": "OANDA:XAGUSD", "title": "SILVER"},
+            {"proName": "FX_IDC:USDINR", "title": "USD/INR"}
+        ],
+        "showSymbolLogo": true,
+        "colorTheme": "dark",
+        "isTransparent": true,
+        "displayMode": "adaptive",
+        "locale": "in"
+        }
+        </script>
     </div>
 </div>
 
 <div id="welcomeOverlay">
     <div class="laugh-emoji">😂</div>
     <h2 style="font-weight: 900;">SECUREFUTURE FINANCIALS</h2>
-    <p style="max-width: 300px; margin-bottom: 25px; opacity: 0.9;">"You will get all services of your choice company and best discount."</p>
-    <button onclick="startSite()" style="background: var(--gold); border: none; padding: 15px 40px; border-radius: 30px; font-weight: 800; cursor: pointer;">ENTER PORTAL</button>
+    <p style="max-width: 300px; margin-bottom: 25px; opacity: 0.9;">"Get choice company services at the best discounts!"</p>
+    <button onclick="startSite()" style="background: var(--gold); border: none; padding: 15px 40px; border-radius: 30px; font-weight: 800; cursor: pointer; color: var(--navy);">ENTER PORTAL</button>
 </div>
 
 <div class="header">
     <h1>SECUREFUTURE FINANCIALS</h1>
-    <p style="color:var(--gold); margin:5px 0 0; font-weight:700;">Chennai & Patna Consulting</p>
+    <p style="color:var(--gold); margin:5px 0 0; font-weight:700; font-size:12px;">Chennai & Patna Consulting</p>
 </div>
 
 <div class="container">
@@ -81,9 +95,9 @@
 
     <span class="section-tag">Calculators & Wealth Planning</span>
     <div class="calc-card">
-        <p style="margin:0 0 10px; font-size: 11px; font-weight: 800; color: var(--gold);">SIP (Wealth Builder)</p>
+        <p style="margin:0 0 10px; font-size: 11px; font-weight: 800; color: var(--gold);">SIP WEALTH BUILDER</p>
         <div class="calc-group"><label>Monthly SIP (₹)</label><input type="number" id="sA" class="calc-input" value="5000" oninput="calcAll()"></div>
-        <div class="calc-group"><label>Expected Return %</label><input type="number" id="sR" class="calc-input" value="12" oninput="calcAll()"></div>
+        <div class="calc-group"><label>Exp. Return %</label><input type="number" id="sR" class="calc-input" value="12" oninput="calcAll()"></div>
         <div class="calc-group"><label>Years</label><input type="number" id="sY" class="calc-input" value="10" oninput="calcAll()"></div>
         <div class="res-box"><b id="sO">₹ 11,61,695</b></div>
     </div>
@@ -102,14 +116,16 @@
         <div class="icon-card" onclick="openForm('Term Life Insurance')">🛡️<span>Term Life</span></div>
         <div class="icon-card" onclick="openForm('Fire Insurance')">🔥<span>Fire</span></div>
         <div class="icon-card" onclick="openForm('Marine Insurance')">🚢<span>Marine</span></div>
+        <div class="icon-card" onclick="openForm('Car Insurance')">🚗<span>Car</span></div>
+        <div class="icon-card" onclick="openForm('Bike Insurance')">🛵<span>Bike</span></div>
     </div>
 
     <span class="section-tag">Investments & Bonds</span>
     <div class="grid">
         <div class="icon-card" onclick="openForm('Mutual Funds')">📈<span>Mutual Funds</span></div>
-        <div class="icon-card" onclick="openForm('Bonds & Fixed Income')">📜<span>Bonds</span></div>
-        <div class="icon-card" onclick="openForm('Unlisted Shares')">💎<span>Unlisted Shares</span></div>
-        <div class="icon-card" onclick="openForm('24K Digital Gold')">🏆<span>Gold Price</span></div>
+        <div class="icon-card" onclick="openForm('Bonds')">📜<span>Bonds</span></div>
+        <div class="icon-card" onclick="openForm('Unlisted Shares')">💎<span>Unlisted</span></div>
+        <div class="icon-card" onclick="openForm('Fixed Deposits')">🏦<span>FDs</span></div>
     </div>
 </div>
 
@@ -117,30 +133,26 @@
 
 <div id="serviceModal" class="modal">
     <div class="modal-content">
-        <h2 id="modalTitle" style="margin-top:0;">Enquiry</h2>
+        <h2 id="modalTitle" style="margin-top:0; font-weight:900;">Enquiry</h2>
         <input type="text" id="f_name" class="form-input" placeholder="Full Name">
-        <textarea id="f_req" class="form-input" placeholder="Requirements..."></textarea>
-        <button class="footer-btn" style="background:var(--green); width:100%; border:none;" onclick="submitWA()">Submit to WhatsApp ✅</button>
+        <textarea id="f_req" class="form-input" style="height:80px;" placeholder="Message/Requirements..."></textarea>
+        <button class="footer-btn" style="background:var(--green); width:100%; border:none; cursor:pointer;" onclick="submitWA()">Submit WhatsApp ✅</button>
         <p onclick="closeModal()" style="text-align:center; color:red; cursor:pointer; font-weight:800; font-size:12px; margin-top:15px;">CLOSE</p>
     </div>
 </div>
 
 <footer class="footer-pro">
     <h2>SECUREFUTURE</h2>
-    <div style="display:flex; justify-content:center; gap:15px; margin:20px 0;">
-        <a href="#" style="color:var(--gold); text-decoration:none;">LinkedIn</a>
-        <a href="#" style="color:var(--gold); text-decoration:none;">Instagram</a>
-    </div>
-    <a href="mailto:securefuturefinanicials@gmail.com" class="footer-btn">📧 securefuturefinanicials@gmail.com</a>
+    <a href="mailto:securefuturefinanicials@gmail.com" class="footer-btn">📧 Email Support</a>
     <a href="tel:+919080037313" class="footer-btn">📞 Call: +91 90800 37313</a>
-    <p style="font-size:10px; opacity:0.4; margin-top:20px;">© 2026 SECUREFUTURE FINANCIALS</p>
+    <p style="font-size:10px; opacity:0.4; margin-top:30px;">© 2026 SECUREFUTURE FINANCIALS</p>
 </footer>
 
 <script>
     function startSite() {
         document.getElementById('welcomeOverlay').style.opacity = '0';
         setTimeout(() => { document.getElementById('welcomeOverlay').style.display = 'none'; }, 800);
-        const msg = new SpeechSynthesisUtterance("Welcome to Secure Future Financials. We help you find the best insurance and investment plans at the highest discounts.");
+        const msg = new SpeechSynthesisUtterance("Welcome to Secure Future Financials. We are here to support you with the best financial advice and services.");
         window.speechSynthesis.speak(msg);
     }
     let activeS = "";
@@ -153,7 +165,9 @@
     function submitWA() {
         const name = document.getElementById('f_name').value;
         const req = document.getElementById('f_req').value;
+        if(!name) return alert("Enter Name");
         window.open(`https://wa.me/919080037313?text=*Enquiry:* ${activeS}%0A*Name:* ${name}%0A*Details:* ${req}`, '_blank');
+        closeModal();
     }
     function calcAll() {
         let p = parseFloat(document.getElementById('sA').value), i = parseFloat(document.getElementById('sR').value)/12/100, n = parseFloat(document.getElementById('sY').value)*12;
