@@ -3,77 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SecureFuture Financials | Expert Consulting</title>
+    <title>SecureFuture Financials | Complete Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --navy: #001f3f; --gold: #ffcc00; --white: #ffffff; --light: #f0f4f8; --green: #25D366; }
-        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); line-height: 1.6; }
-        
-        /* Header Section */
-        .header { background: linear-gradient(135deg, #001f3f 0%, #003366 100%); color: white; text-align: center; padding: 60px 20px; border-bottom: 6px solid var(--gold); }
-        .logo-box { width: 100px; height: 100px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; }
-        .header h1 { margin: 0; font-size: 28px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; }
-        .promo-quote { background: rgba(255, 255, 255, 0.1); border: 1px dashed var(--gold); padding: 15px; margin: 20px auto; border-radius: 15px; max-width: 500px; font-style: italic; color: var(--gold); font-size: 0.9rem; }
-        
-        /* Main Container */
-        .container { max-width: 600px; margin: -30px auto 40px; padding: 0 15px; position: relative; }
-        
-        /* Buttons */
-        .btn-main { width: 100%; padding: 18px; border-radius: 12px; border: none; font-weight: 900; margin-bottom: 12px; cursor: pointer; color: white; display: block; text-align: center; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.2s; }
-        .btn-main:active { transform: scale(0.98); }
-        .btn-prospectus { background: #ff4757; }
-        .btn-credit { background: var(--green); }
-        .btn-refer { background: #5d5fef; }
-        .btn-audit { background: #ffc107; color: #000; }
+        :root { 
+            --navy: #001f3f; 
+            --gold: #ffcc00; 
+            --light: #f4f7f9; 
+            --green: #25D366; 
+            --red: #ff4d4d;
+            --blue: #5865F2;
+            --gradient: linear-gradient(180deg, #001f3f 0%, #002d5a 100%);
+        }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); overflow-x: hidden; }
 
-        /* Section Cards */
-        .section-title { margin: 30px 0 15px; font-size: 1.1rem; font-weight: 800; display: flex; align-items: center; gap: 8px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .icon-card { background: white; padding: 20px; border-radius: 15px; text-align: center; border: 1px solid #eef2f6; font-weight: 700; font-size: 0.9rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .icon-card span { display: block; font-size: 1.5rem; margin-bottom: 8px; }
+        /* HEADER & LOGO FIX */
+        .header { background: var(--gradient); color: white; text-align: center; padding: 40px 20px 30px; border-bottom: 5px solid var(--gold); }
+        .logo-circle { 
+            width: 100px; height: 100px; background: white; border-radius: 50%; 
+            margin: 0 auto 15px; border: 4px solid var(--gold); display: flex; 
+            align-items: center; justify-content: center; overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
+        }
+        .logo-circle img { width: 100%; height: 100%; object-fit: contain; }
 
-        /* Footer */
-        footer { background: var(--navy); color: white; text-align: center; padding: 40px 20px; border-top: 6px solid var(--gold); }
-        .footer-btn { background: rgba(255,255,255,0.05); color: white; text-decoration: none; display: block; padding: 12px; margin: 8px auto; border-radius: 8px; max-width: 400px; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.1); }
+        .header h1 { margin: 0; font-size: 24px; font-weight: 900; letter-spacing: 1px; }
+        .header p { color: var(--gold); font-weight: 700; margin: 5px 0 0; font-size: 14px; }
+
+        /* FLOATING QUOTE */
+        .quote-box {
+            border: 1.5px dashed var(--gold); padding: 15px; border-radius: 12px;
+            margin: 20px auto 0; max-width: 500px; font-style: italic;
+            font-size: 14px; line-height: 1.5; color: var(--gold); font-weight: 600;
+        }
+
+        .main-content { max-width: 600px; margin: 0 auto; padding: 20px; }
+
+        /* BUTTONS */
+        .btn-stack { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
+        .action-btn { 
+            width: 100%; padding: 18px; border: none; border-radius: 12px; font-weight: 900;
+            color: white; font-size: 15px; cursor: pointer; text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.2s;
+        }
+        .btn-red { background: var(--red); }
+        .btn-green { background: var(--green); }
+        .btn-blue { background: var(--blue); }
+        .btn-gold { background: var(--gold); color: var(--navy); }
+
+        /* TRENDING SECTION */
+        .label { font-size: 12px; font-weight: 900; color: #666; display: flex; align-items: center; gap: 8px; margin: 25px 0 15px; }
+        .label::after { content: ""; flex: 1; height: 1px; background: #ddd; }
+        
+        .trending-card { 
+            background: white; border-radius: 20px; overflow: hidden; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #eee;
+        }
+        .trending-card img { width: 100%; height: 180px; object-fit: cover; }
+        .trending-body { padding: 20px; }
+        .trending-body h3 { margin: 0; font-size: 18px; font-weight: 900; }
+
+        /* CALCULATORS */
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
+        .calc-box { background: var(--navy); color: white; padding: 20px; border-radius: 20px; border-bottom: 5px solid var(--gold); }
+        .calc-title { font-size: 11px; font-weight: 900; color: var(--gold); text-align: center; margin-bottom: 15px; }
+        .calc-input { 
+            width: 100%; padding: 10px; border-radius: 8px; border: none; 
+            background: rgba(255,255,255,0.1); color: white; font-weight: 700; margin-bottom: 10px;
+        }
+        .calc-res { background: rgba(255,204,0,0.1); padding: 10px; border-radius: 10px; text-align: center; border: 1px solid var(--gold); }
+        .calc-res b { color: var(--gold); display: block; font-size: 16px; }
+
+        /* SERVICE GRIDS */
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .service-card { 
+            background: white; padding: 25px 10px; border-radius: 18px; text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #eee; cursor: pointer;
+        }
+        .service-card span { display: block; margin-top: 10px; font-weight: 800; font-size: 14px; }
+
+        /* FOOTER */
+        .footer { background: var(--navy); color: white; text-align: center; padding: 40px 20px; margin-top: 40px; }
+        .footer-link { 
+            background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px;
+            display: block; color: white; text-decoration: none; margin-bottom: 10px; font-weight: 700;
+        }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <div class="logo-box"></div> <h1>SECUREFUTURE FINANCIALS</h1>
-    <p style="color:var(--gold); font-weight: 800; margin-top: 5px;">Expert Consulting | Chennai & Patna</p>
-    <div class="promo-quote">"You will get all services of your choices company and best discount. So first try and decide."</div>
-</div>
-
-<div class="container">
-    <a href="#" class="btn-main btn-prospectus">📄 DOWNLOAD PROSPECTUS</a>
-    <a href="https://www.cibil.com/freecreditscore" target="_blank" class="btn-main btn-credit">📊 FREE CREDIT SCORE</a>
-    <a href="#" class="btn-main btn-refer">🤝 REFER A FRIEND</a>
-    <a href="#" class="btn-main btn-audit">🚀 BOOK FREE 360° AUDIT</a>
+    <div class="logo-circle">
+        <img src="logo.jpeg" alt="Logo" onerror="this.src='https://via.placeholder.com/150/FFFFFF/001f3f?text=SF'">
+    </div>
+    <h1>SECUREFUTURE FINANCIALS</h1>
+    <p>EXPERT CONSULTING | CHENNAI & PATNA</p>
     
-    <div class="section-title">🛡️ INSURANCE PORTFOLIO</div>
-    <div class="grid">
-        <div class="icon-card"><span>🏥</span> Health</div>
-        <div class="icon-card"><span>🛡️</span> Term Life</div>
-        <div class="icon-card"><span>🚗</span> Car</div>
-        <div class="icon-card"><span>🚛</span> Commercial</div>
-    </div>
-
-    <div class="section-title">📈 FINANCE & INVESTMENT</div>
-    <div class="grid">
-        <div class="icon-card"><span>📈</span> Mutual Funds</div>
-        <div class="icon-card"><span>🏆</span> 24K Gold</div>
-        <div class="icon-card"><span>🏢</span> Business</div>
-        <div class="icon-card"><span>🏠</span> Home Loan</div>
+    <div class="quote-box">
+        "You will get all services of your choice company with the best discounts. <br>Our motto: <b>First Try, Then Decide.</b>"
     </div>
 </div>
 
-<footer>
-    <p style="font-weight: 900; letter-spacing: 1px;">SECUREFUTURE FINANCIALS</p>
-    <a href="mailto:support@securefuture.com" class="footer-btn">📧 Email Support</a>
-    <a href="https://wa.me/919080037313" class="footer-btn">💬 WhatsApp Support</a>
-    <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 20px;">© 2026 SECUREFUTURE FINANCIALS</p>
-</footer>
+<div class="main-content">
+    <div class="btn-stack">
+        <button class="action-btn btn-red" onclick="goWA('Download Prospectus')">📄 Download Prospectus</button>
+        <button class="action-btn btn-green" onclick="window.open('https://www.cibil.com/', '_blank')">📊 Free Credit Score</button>
+        <button class="action-btn btn-blue" onclick="goWA('Refer a Friend')">🤝 Refer a Friend</button>
+        <button class="action-btn btn-gold" onclick="goWA('Book Audit')">🚀 Book Free 360° Audit</button>
+    </div>
 
+    <div class="label">🔥 TRENDING NOW</div>
+    <div class="trending-card" onclick="goWA('Bike Insurance')">
+        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=600&q=80">
+        <div class="trending-body">
+            <h3>🛵 Bike & Superbike</h3>
+            <p style="font-size: 13px; color: #666; margin: 8px 0 0;">Instant quotes from top companies with max discounts.</p>
+        </div>
+    </div>
+
+    <div class="label">🧮 SMART CALCULATORS</div>
+    <div class="calc-grid">
+        <div class="calc-box">
+            <div class="calc-title">SIP (WEALTH)</div>
+            <input type="number" id="sA" class="calc-input" value="5000" oninput="cS()">
+            <input type="number" id="sR" class="calc-input" value="12" oninput="cS()">
+            <input type="number" id="sY" class="calc-input" value="10" oninput="cS()">
+            <div class="calc-res"><small>FUTURE VALUE</small><b id="sO">₹ 11,61,695</b></div>
+        </div>
+        <div class="calc-box">
+            <div class="calc-title">LOAN (EMI)</div>
+            <input type="number" id="eA" class="calc-input" value="1000000" oninput="cE()">
+            <input type="number" id="eR" class="calc-input" value="9" oninput="cE()">
+            <input type="number" id="eY" class="calc-input" value="15" oninput="cE()">
+            <div class="calc-res"><small>MONTHLY EMI</small><b id="eO">₹ 10,143</b></div>
+        </div>
+    </div>
+
+    <div class="label">🛡️ INSURANCE PORTFOLIO</div>
+    <div class="grid">
+        <div class="service-card" onclick="goWA('Health Insurance')">🏥<span>Health</span></div>
+        <div class="service-card" onclick="goWA('Life Insurance')">🛡️<span>Life</span></div>
+        <div class="service-card" onclick="goWA('Car Insurance')">🚗<span>Car</span></div>
+        <div class="service-card" onclick="goWA('Commercial Vehicle')">🚛<span>Commercial</span></div>
+    </div>
+
+    <div class="label">📈 FINANCE & INVESTMENT</div>
+    <div class="grid">
+        <div class="service-card" onclick="goWA('Mutual Funds')">📈<span>Mutual Funds</span></div>
+        <div class="service-card" onclick="goWA('24K Gold')">🏆<span>24K Gold</span></div>
+        <div class="service-card" onclick="goWA('Business Loan')">🏢<span>Business</span></div>
+        <div class="service-card" onclick="goWA('Home Loan')">🏠<span>Home Loan</span></div>
+    </div>
+</div>
+
+<div class="footer">
+    <div style="font-weight: 900; margin-bottom: 25px;">SECUREFUTURE FINANCIALS</div>
+    <a href="mailto:securefuturefinanicials@gmail.com" class="footer-link">📧 Email Support</a>
+    <a href="https://wa.me/919080037313" class="footer-link">💬 WhatsApp Support</a>
+    <a href="tel:+919080037313" class="footer-link">📞 Call +91 90800 37313</a>
+    <p style="font-size: 11px; opacity: 0.5; margin-top: 30px;">SECUREFUTURE FINANCIALS © 2026</p>
+</div>
+
+<script>
+    function goWA(s) { window.open(`https://wa.me/919080037313?text=Hi, I am interested in ${s}.`, '_blank'); }
+    function cS() {
+        let p = parseFloat(document.getElementById('sA').value), i = parseFloat(document.getElementById('sR').value)/12/100, n = parseFloat(document.getElementById('sY').value)*12;
+        if(p && i && n) document.getElementById('sO').innerText = "₹ " + Math.round(p * ((Math.pow(1+i,n)-1)/i) * (1+i)).toLocaleString('en-IN');
+    }
+    function cE() {
+        let p = parseFloat(document.getElementById('eA').value), r = parseFloat(document.getElementById('eR').value)/12/100, n = parseFloat(document.getElementById('eY').value)*12;
+        if(p && r && n) document.getElementById('eO').innerText = "₹ " + Math.round(p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1)).toLocaleString('en-IN');
+    }
+</script>
 </body>
 </html>
