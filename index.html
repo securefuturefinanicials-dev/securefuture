@@ -7,60 +7,72 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root { --navy: #001f3f; --gold: #ffcc00; --white: #ffffff; --light: #f0f4f8; --green: #25D366; }
-        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); }
-        .header { background: linear-gradient(135deg, #001f3f 0%, #003366 100%); color: white; text-align: center; padding: 50px 20px; border-bottom: 6px solid var(--gold); }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); line-height: 1.6; }
         
-        /* Fixed Logo Container - Border Removed */
-        .logo-box { 
-            width: 100px; height: 100px; margin: 0 auto 20px; 
-            display: flex; align-items: center; justify-content: center; 
-        }
+        /* Header Section */
+        .header { background: linear-gradient(135deg, #001f3f 0%, #003366 100%); color: white; text-align: center; padding: 60px 20px; border-bottom: 6px solid var(--gold); }
+        .logo-box { width: 100px; height: 100px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; }
+        .header h1 { margin: 0; font-size: 28px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; }
+        .promo-quote { background: rgba(255, 255, 255, 0.1); border: 1px dashed var(--gold); padding: 15px; margin: 20px auto; border-radius: 15px; max-width: 500px; font-style: italic; color: var(--gold); font-size: 0.9rem; }
         
-        .header h1 { margin: 0; font-size: 28px; font-weight: 900; letter-spacing: 2px; }
-        .promo-quote { background: rgba(255, 255, 255, 0.1); border: 1px dashed var(--gold); padding: 15px; margin: 20px auto; border-radius: 15px; max-width: 500px; font-style: italic; color: var(--gold); }
-        .container { max-width: 700px; margin: 0 auto; padding: 30px 15px; }
-        .btn-main { width: 100%; padding: 20px; border-radius: 15px; border: none; font-weight: 900; margin-bottom: 15px; cursor: pointer; color: white; display: block; text-align: center; text-decoration: none; }
+        /* Main Container */
+        .container { max-width: 600px; margin: -30px auto 40px; padding: 0 15px; position: relative; }
+        
+        /* Buttons */
+        .btn-main { width: 100%; padding: 18px; border-radius: 12px; border: none; font-weight: 900; margin-bottom: 12px; cursor: pointer; color: white; display: block; text-align: center; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.2s; }
+        .btn-main:active { transform: scale(0.98); }
         .btn-prospectus { background: #ff4757; }
         .btn-credit { background: var(--green); }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
-        .icon-card { background: white; padding: 25px; border-radius: 20px; text-align: center; border: 1px solid #eee; font-weight: 800; }
+        .btn-refer { background: #5d5fef; }
+        .btn-audit { background: #ffc107; color: #000; }
+
+        /* Section Cards */
+        .section-title { margin: 30px 0 15px; font-size: 1.1rem; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .icon-card { background: white; padding: 20px; border-radius: 15px; text-align: center; border: 1px solid #eef2f6; font-weight: 700; font-size: 0.9rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .icon-card span { display: block; font-size: 1.5rem; margin-bottom: 8px; }
+
+        /* Footer */
         footer { background: var(--navy); color: white; text-align: center; padding: 40px 20px; border-top: 6px solid var(--gold); }
+        .footer-btn { background: rgba(255,255,255,0.05); color: white; text-decoration: none; display: block; padding: 12px; margin: 8px auto; border-radius: 8px; max-width: 400px; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.1); }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <div class="logo-box">
-        </div>
-    <h1>SECUREFUTURE FINANCIALS</h1>
-    <p style="color:var(--gold); font-weight: 800;">Expert Consulting | Chennai & Patna</p>
+    <div class="logo-box"></div> <h1>SECUREFUTURE FINANCIALS</h1>
+    <p style="color:var(--gold); font-weight: 800; margin-top: 5px;">Expert Consulting | Chennai & Patna</p>
     <div class="promo-quote">"You will get all services of your choices company and best discount. So first try and decide."</div>
 </div>
 
 <div class="container">
     <a href="#" class="btn-main btn-prospectus">📄 DOWNLOAD PROSPECTUS</a>
     <a href="https://www.cibil.com/freecreditscore" target="_blank" class="btn-main btn-credit">📊 FREE CREDIT SCORE</a>
+    <a href="#" class="btn-main btn-refer">🤝 REFER A FRIEND</a>
+    <a href="#" class="btn-main btn-audit">🚀 BOOK FREE 360° AUDIT</a>
     
-    <h3 style="margin-top:40px;">🛡️ Insurance Portfolio</h3>
+    <div class="section-title">🛡️ INSURANCE PORTFOLIO</div>
     <div class="grid">
-        <div class="icon-card">🏥 Health</div>
-        <div class="icon-card">🛡️ Term Life</div>
-        <div class="icon-card">🚗 Car</div>
-        <div class="icon-card">🚛 Commercial</div>
+        <div class="icon-card"><span>🏥</span> Health</div>
+        <div class="icon-card"><span>🛡️</span> Term Life</div>
+        <div class="icon-card"><span>🚗</span> Car</div>
+        <div class="icon-card"><span>🚛</span> Commercial</div>
     </div>
 
-    <h3 style="margin-top:40px;">📈 Finance & Investment</h3>
+    <div class="section-title">📈 FINANCE & INVESTMENT</div>
     <div class="grid">
-        <div class="icon-card">📈 Mutual Funds</div>
-        <div class="icon-card">🏆 24K Gold</div>
-        <div class="icon-card">🏢 Business</div>
-        <div class="icon-card">🏠 Home Loan</div>
+        <div class="icon-card"><span>📈</span> Mutual Funds</div>
+        <div class="icon-card"><span>🏆</span> 24K Gold</div>
+        <div class="icon-card"><span>🏢</span> Business</div>
+        <div class="icon-card"><span>🏠</span> Home Loan</div>
     </div>
 </div>
 
 <footer>
-    <p>SECUREFUTURE FINANCIALS © 2026</p>
-    <p>Contact: +91 90800 37313</p>
+    <p style="font-weight: 900; letter-spacing: 1px;">SECUREFUTURE FINANCIALS</p>
+    <a href="mailto:support@securefuture.com" class="footer-btn">📧 Email Support</a>
+    <a href="https://wa.me/919080037313" class="footer-btn">💬 WhatsApp Support</a>
+    <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 20px;">© 2026 SECUREFUTURE FINANCIALS</p>
 </footer>
 
 </body>
