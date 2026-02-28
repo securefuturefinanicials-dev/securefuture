@@ -45,7 +45,7 @@
         /* REFERRAL CARD */
         .refer-card { background: linear-gradient(135deg, var(--navy), #004080); color: white; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 25px; border: 2px dashed var(--gold); cursor: pointer; }
 
-        /* FLOATING INQUIRY */
+        /* FLOATING INQUIRY Bar */
         .floating-inquiry { position: fixed; bottom: 0; left: 0; right: 0; background: white; padding: 15px 20px; border-top: 3px solid var(--gold); box-shadow: 0 -5px 20px rgba(0,0,0,0.1); z-index: 1100; display: flex; gap: 10px; }
         .float-input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 13px; }
         .float-submit { background: var(--green); color: white; border: none; padding: 12px 20px; border-radius: 8px; font-weight: 900; cursor: pointer; font-size: 13px; }
@@ -60,7 +60,10 @@
         .social-bar { display: flex; justify-content: center; gap: 25px; margin-bottom: 25px; }
         .social-bar a { color: var(--gold); font-size: 22px; }
         .footer-btn { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin: 10px 0; display: block; color: white; text-decoration: none; font-weight: 600; font-size: 14px; border: 1px solid rgba(255,255,255,0.1); }
-        .wa-float { position: fixed; bottom: 85px; right: 20px; background: var(--green); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; color: white; z-index: 1050; }
+        
+        /* FLOATING ACTION BUTTONS */
+        .wa-float { position: fixed; bottom: 85px; right: 20px; background: var(--green); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; color: white; z-index: 1050; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .share-float { position: fixed; bottom: 85px; left: 20px; background: var(--navy); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--gold); z-index: 1050; border: 2px solid var(--gold); cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
     </style>
 </head>
 <body>
@@ -156,13 +159,14 @@
     </div>
 </div>
 
-<a href="https://wa.me/919080037313" class="wa-float" style="text-decoration:none; display:flex; align-items:center; justify-content:center; color:white;"><i class="fab fa-whatsapp"></i></a>
+<div class="share-float" onclick="shareWebsite()"><i class="fa fa-share-alt"></i></div>
+<a href="https://wa.me/919080037313" class="wa-float" style="text-decoration:none;"><i class="fab fa-whatsapp"></i></a>
 
 <footer class="footer">
     <h2>SECUREFUTURE</h2>
     <div class="social-bar">
         <a href="https://www.linkedin.com/in/securefuture-financials-42b0783b4/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/securefuturefinanicials" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
     <a href="mailto:securefuturefinanicials@gmail.com" class="footer-btn">securefuturefinanicials@gmail.com</a>
     <a href="tel:+919080037313" class="footer-btn">Call: +91 90800 37313</a>
@@ -171,6 +175,22 @@
 
 <script>
     let activeService = "";
+
+    function shareWebsite() {
+        const tagline = "🛡️ SecureFuture Financials: Expert Consulting for Insurance, Loans, and Investments. Try our SIP & EMI Calculators here:";
+        const shareData = {
+            title: 'SecureFuture Financials',
+            text: tagline,
+            url: window.location.href
+        };
+
+        if (navigator.share) {
+            navigator.share(shareData);
+        } else {
+            const waMsg = encodeURIComponent(tagline + " " + window.location.href);
+            window.open(`https://wa.me/?text=${waMsg}`, '_blank');
+        }
+    }
 
     function openModal(service) {
         activeService = service;
