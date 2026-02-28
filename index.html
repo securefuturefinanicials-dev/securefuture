@@ -19,7 +19,7 @@
         * { box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); }
 
-        /* HEADER FIXES */
+        /* HEADER & LOGO FIX */
         .header { 
             background: #001f3f; 
             color: white; 
@@ -27,33 +27,37 @@
             padding: 40px 20px; 
             border-bottom: 5px solid var(--gold);
         }
+        /* Removed round logo styling - switched to square frame */
         .logo-box { 
-            width: 110px; height: 110px; 
-            border-radius: 50%; border: 4px solid var(--gold); 
+            width: 120px; height: 120px; 
+            border: 4px solid var(--gold); 
             background: white; margin: 0 auto 15px;
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 20px rgba(255, 204, 0, 0.5); overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);
+            border-radius: 15px; /* Slight rounding for the square logo box */
+            overflow: hidden;
         }
-        .logo-box img { width: 100%; height: 100%; object-fit: cover; }
+        .logo-box img { width: 90%; height: auto; }
         
-        .header h1 { margin: 10px 0; font-size: 26px; font-weight: 900; }
+        .header h1 { margin: 10px 0; font-size: 26px; font-weight: 900; letter-spacing: 1px; }
         .promo-quote {
             background: rgba(255, 255, 255, 0.05);
             border: 1px dashed var(--gold);
             padding: 15px; border-radius: 12px;
             margin: 20px auto 0; max-width: 600px;
-            color: var(--gold); font-size: 14px; font-weight: 700;
+            color: var(--gold); font-size: 14px; font-weight: 700; line-height: 1.4;
         }
 
         .container { max-width: 700px; margin: 0 auto; padding: 20px; }
 
-        /* BUTTON STYLING */
+        /* BUTTON STACK */
         .btn-stack { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
         .btn-main { 
             padding: 18px; border-radius: 12px; border: none; font-weight: 900; 
             font-size: 15px; color: white; cursor: pointer; text-decoration: none;
             display: flex; align-items: center; justify-content: center; gap: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-transform: uppercase;
         }
         .btn-red { background: var(--btn-red); }
         .btn-green { background: var(--btn-green); }
@@ -63,36 +67,39 @@
         /* CALCULATORS */
         .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 30px 0; }
         .calc-card { background: #001c38; color: white; padding: 20px; border-radius: 20px; text-align: center; border-bottom: 4px solid var(--gold); }
-        .calc-card h4 { margin: 0 0 15px; color: var(--gold); font-size: 13px; }
-        .calc-input { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: none; background: rgba(255,255,255,0.1); color: white; font-weight: 700; }
+        .calc-card h4 { margin: 0 0 15px; color: var(--gold); font-size: 13px; font-weight: 800; }
+        .calc-input { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: none; background: rgba(255,255,255,0.1); color: white; font-weight: 700; text-align: center; }
         .res-box { background: rgba(0,0,0,0.2); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,193,7,0.3); }
         .res-box b { font-size: 18px; color: var(--gold); display: block; margin-top: 5px; }
 
-        /* SERVICE GRID */
+        /* GRID LAYOUTS */
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
-        .icon-card { background: white; padding: 25px 10px; border-radius: 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); cursor: pointer; }
-        .icon-card span { display: block; margin-top: 10px; font-weight: 800; font-size: 14px; }
+        .icon-card { background: white; padding: 25px 10px; border-radius: 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .icon-card span { display: block; margin-top: 10px; font-weight: 800; font-size: 14px; color: var(--navy); }
 
-        /* FOOTER DESIGN */
+        /* FOOTER FIX */
         footer { background: #001f3f; color: white; padding: 40px 20px; text-align: center; margin-top: 40px; }
+        .footer-title { font-weight: 900; margin-bottom: 25px; letter-spacing: 1px; font-size: 18px; }
         .footer-btn { 
             background: rgba(255,255,255,0.08); 
             color: white; text-decoration: none;
             display: flex; align-items: center; justify-content: center;
-            padding: 15px; border-radius: 10px; margin-bottom: 10px;
+            padding: 18px; border-radius: 10px; margin-bottom: 12px;
             font-weight: 700; font-size: 14px; gap: 10px;
+            transition: background 0.3s;
         }
-        .copyright { margin-top: 25px; font-size: 11px; opacity: 0.6; }
+        .footer-btn:hover { background: rgba(255,255,255,0.15); }
+        .copyright { margin-top: 30px; font-size: 11px; opacity: 0.5; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
 <div class="header">
     <div class="logo-box">
-        <img src="logo.jpeg" alt="SecureFuture">
+        <img src="logo.jpeg" alt="SF Secure Logo">
     </div>
     <h1>SECUREFUTURE FINANCIALS</h1>
-    <div style="color:var(--gold); font-weight: 700; font-size: 14px;">Expert Consulting | Chennai & Patna</div>
+    <div style="color:var(--gold); font-weight: 700; font-size: 14px;">EXPERT CONSULTING | CHENNAI & PATNA</div>
     <div class="promo-quote">
         "You will get all services of your choice company with the best discounts. <br>Our motto: First Try, Then Decide."
     </div>
@@ -101,7 +108,7 @@
 <div class="container">
     <div class="btn-stack">
         <a href="#" class="btn-main btn-red">📄 DOWNLOAD PROSPECTUS</a>
-        <a href="#" class="btn-green" class="btn-main" style="background: #2ecc71; padding: 18px; border-radius: 12px; color: white; font-weight: 900; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none;">📊 FREE CREDIT SCORE</a>
+        <a href="#" class="btn-main btn-green">📊 FREE CREDIT SCORE</a>
         <a href="#" class="btn-main btn-blue">🤝 REFER A FRIEND</a>
         <a href="#" class="btn-main btn-gold">🚀 BOOK FREE 360° AUDIT</a>
     </div>
@@ -109,21 +116,19 @@
     <div class="calc-grid">
         <div class="calc-card">
             <h4>💰 SIP (WEALTH)</h4>
-            <input type="number" value="5000" class="calc-input">
-            <input type="number" value="12" class="calc-input">
-            <input type="number" value="10" class="calc-input">
+            <input type="number" placeholder="Monthly SIP" value="5000" class="calc-input">
+            <input type="number" placeholder="Tenure" value="10" class="calc-input">
             <div class="res-box"><small>FUTURE WEALTH</small><b>₹ 11,61,695</b></div>
         </div>
         <div class="calc-card">
             <h4>🏠 LOAN (EMI)</h4>
-            <input type="number" value="1000000" class="calc-input">
-            <input type="number" value="9" class="calc-input">
-            <input type="number" value="15" class="calc-input">
+            <input type="number" placeholder="Loan Amount" value="1000000" class="calc-input">
+            <input type="number" placeholder="Tenure" value="15" class="calc-input">
             <div class="res-box"><small>MONTHLY EMI</small><b>₹ 10,143</b></div>
         </div>
     </div>
 
-    <div style="font-weight: 900; margin: 20px 0 10px; color: #666; font-size: 12px;">🛡️ INSURANCE PORTFOLIO</div>
+    <div style="font-weight: 900; margin: 20px 0 10px; color: #888; font-size: 12px; letter-spacing: 1px;">🛡️ INSURANCE PORTFOLIO</div>
     <div class="grid">
         <div class="icon-card">🏥<span>Health</span></div>
         <div class="icon-card">🛡️<span>Term Life</span></div>
@@ -131,17 +136,17 @@
         <div class="icon-card">🚛<span>Commercial</span></div>
     </div>
 
-    <div style="font-weight: 900; margin: 20px 0 10px; color: #666; font-size: 12px;">📈 FINANCE & INVESTMENT</div>
+    <div style="font-weight: 900; margin: 20px 0 10px; color: #888; font-size: 12px; letter-spacing: 1px;">📈 FINANCE & INVESTMENT</div>
     <div class="grid">
         <div class="icon-card">📈<span>Mutual Funds</span></div>
-        <div class="icon-card">🏆<span>24K Gold</span></div>
+        <div class="icon-card)🏆<span>24K Gold</span></div>
         <div class="icon-card">🏢<span>Business</span></div>
         <div class="icon-card">🏠<span>Home Loan</span></div>
     </div>
 </div>
 
 <footer>
-    <h3 style="margin-bottom: 30px; font-weight: 900;">SECUREFUTURE FINANCIALS</h3>
+    <div class="footer-title">SECUREFUTURE FINANCIALS</div>
     
     <a href="mailto:securefuturefinanicials@gmail.com" class="footer-btn">📧 Email Support</a>
     <a href="https://wa.me/919080037313" class="footer-btn">💬 WhatsApp Support</a>
