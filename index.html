@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SecureFuture Financials | Complete Portal</title>
+    <title>SecureFuture Financials | Expert Consulting</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root { 
@@ -16,7 +16,7 @@
             --gradient: linear-gradient(180deg, #001f3f 0%, #002d5a 100%);
         }
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); }
 
         /* HEADER & LOGO FIX */
         .header { background: var(--gradient); color: white; text-align: center; padding: 40px 20px 30px; border-bottom: 5px solid var(--gold); }
@@ -45,14 +45,14 @@
         .action-btn { 
             width: 100%; padding: 18px; border: none; border-radius: 12px; font-weight: 900;
             color: white; font-size: 15px; cursor: pointer; text-transform: uppercase;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         .btn-red { background: var(--red); }
         .btn-green { background: var(--green); }
         .btn-blue { background: var(--blue); }
         .btn-gold { background: var(--gold); color: var(--navy); }
 
-        /* TRENDING SECTION */
+        /* TRENDING */
         .label { font-size: 12px; font-weight: 900; color: #666; display: flex; align-items: center; gap: 8px; margin: 25px 0 15px; }
         .label::after { content: ""; flex: 1; height: 1px; background: #ddd; }
         
@@ -62,33 +62,22 @@
         }
         .trending-card img { width: 100%; height: 180px; object-fit: cover; }
         .trending-body { padding: 20px; }
-        .trending-body h3 { margin: 0; font-size: 18px; font-weight: 900; }
 
         /* CALCULATORS */
         .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
         .calc-box { background: var(--navy); color: white; padding: 20px; border-radius: 20px; border-bottom: 5px solid var(--gold); }
-        .calc-title { font-size: 11px; font-weight: 900; color: var(--gold); text-align: center; margin-bottom: 15px; }
-        .calc-input { 
-            width: 100%; padding: 10px; border-radius: 8px; border: none; 
-            background: rgba(255,255,255,0.1); color: white; font-weight: 700; margin-bottom: 10px;
-        }
+        .calc-input { width: 100%; padding: 10px; border-radius: 8px; border: none; background: rgba(255,255,255,0.1); color: white; margin-bottom: 10px; }
         .calc-res { background: rgba(255,204,0,0.1); padding: 10px; border-radius: 10px; text-align: center; border: 1px solid var(--gold); }
         .calc-res b { color: var(--gold); display: block; font-size: 16px; }
 
         /* SERVICE GRIDS */
         .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        .service-card { 
-            background: white; padding: 25px 10px; border-radius: 18px; text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #eee; cursor: pointer;
-        }
-        .service-card span { display: block; margin-top: 10px; font-weight: 800; font-size: 14px; }
+        .service-card { background: white; padding: 25px 10px; border-radius: 18px; text-align: center; border: 1px solid #eee; }
+        .service-card span { display: block; margin-top: 10px; font-weight: 800; }
 
         /* FOOTER */
         .footer { background: var(--navy); color: white; text-align: center; padding: 40px 20px; margin-top: 40px; }
-        .footer-link { 
-            background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px;
-            display: block; color: white; text-decoration: none; margin-bottom: 10px; font-weight: 700;
-        }
+        .footer-link { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; display: block; color: white; text-decoration: none; margin-bottom: 10px; font-weight: 700; }
     </style>
 </head>
 <body>
@@ -99,7 +88,6 @@
     </div>
     <h1>SECUREFUTURE FINANCIALS</h1>
     <p>EXPERT CONSULTING | CHENNAI & PATNA</p>
-    
     <div class="quote-box">
         "You will get all services of your choice company with the best discounts. <br>Our motto: <b>First Try, Then Decide.</b>"
     </div>
@@ -114,25 +102,22 @@
     </div>
 
     <div class="label">🔥 TRENDING NOW</div>
-    <div class="trending-card" onclick="goWA('Bike Insurance')">
+    <div class="trending-card">
         <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=600&q=80">
-        <div class="trending-body">
-            <h3>🛵 Bike & Superbike</h3>
-            <p style="font-size: 13px; color: #666; margin: 8px 0 0;">Instant quotes from top companies with max discounts.</p>
-        </div>
+        <div class="trending-body"><h3>🛵 Bike & Superbike</h3></div>
     </div>
 
     <div class="label">🧮 SMART CALCULATORS</div>
     <div class="calc-grid">
         <div class="calc-box">
-            <div class="calc-title">SIP (WEALTH)</div>
+            <div style="font-size:10px; color:var(--gold); text-align:center; margin-bottom:10px;">SIP (WEALTH)</div>
             <input type="number" id="sA" class="calc-input" value="5000" oninput="cS()">
             <input type="number" id="sR" class="calc-input" value="12" oninput="cS()">
             <input type="number" id="sY" class="calc-input" value="10" oninput="cS()">
             <div class="calc-res"><small>FUTURE VALUE</small><b id="sO">₹ 11,61,695</b></div>
         </div>
         <div class="calc-box">
-            <div class="calc-title">LOAN (EMI)</div>
+            <div style="font-size:10px; color:var(--gold); text-align:center; margin-bottom:10px;">LOAN (EMI)</div>
             <input type="number" id="eA" class="calc-input" value="1000000" oninput="cE()">
             <input type="number" id="eR" class="calc-input" value="9" oninput="cE()">
             <input type="number" id="eY" class="calc-input" value="15" oninput="cE()">
@@ -142,18 +127,18 @@
 
     <div class="label">🛡️ INSURANCE PORTFOLIO</div>
     <div class="grid">
-        <div class="service-card" onclick="goWA('Health Insurance')">🏥<span>Health</span></div>
-        <div class="service-card" onclick="goWA('Life Insurance')">🛡️<span>Life</span></div>
-        <div class="service-card" onclick="goWA('Car Insurance')">🚗<span>Car</span></div>
-        <div class="service-card" onclick="goWA('Commercial Vehicle')">🚛<span>Commercial</span></div>
+        <div class="service-card" onclick="goWA('Health')">🏥<span>Health</span></div>
+        <div class="service-card" onclick="goWA('Life')">🛡️<span>Life</span></div>
+        <div class="service-card" onclick="goWA('Car')">🚗<span>Car</span></div>
+        <div class="service-card" onclick="goWA('Commercial')">🚛<span>Commercial</span></div>
     </div>
 
     <div class="label">📈 FINANCE & INVESTMENT</div>
     <div class="grid">
-        <div class="service-card" onclick="goWA('Mutual Funds')">📈<span>Mutual Funds</span></div>
-        <div class="service-card" onclick="goWA('24K Gold')">🏆<span>24K Gold</span></div>
-        <div class="service-card" onclick="goWA('Business Loan')">🏢<span>Business</span></div>
-        <div class="service-card" onclick="goWA('Home Loan')">🏠<span>Home Loan</span></div>
+        <div class="service-card" onclick="goWA('MF')">📈<span>Mutual Funds</span></div>
+        <div class="service-card" onclick="goWA('Gold')">🏆<span>24K Gold</span></div>
+        <div class="service-card" onclick="goWA('Business')">🏢<span>Business</span></div>
+        <div class="service-card" onclick="goWA('Home')">🏠<span>Home Loan</span></div>
     </div>
 </div>
 
