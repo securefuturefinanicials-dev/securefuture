@@ -10,134 +10,134 @@
         * { box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); display: flex; flex-direction: column; min-height: 100vh; }
 
-        /* HEADER & LOGO */
-        .header { background: var(--navy); color: white; text-align: center; padding: 40px 20px; border-bottom: 5px solid var(--gold); }
-        .logo-box { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--gold); margin: 0 auto 15px; background: white; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-        .logo-box img { width: 100%; height: 100%; object-fit: contain; padding: 5px; }
-        .header h1 { margin: 0; font-size: 24px; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; }
-        .header p { color: var(--gold); font-weight: 700; font-size: 11px; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        /* HEADER: TEXT ONLY - NO LOGO */
+        .header { background: var(--navy); color: white; text-align: center; padding: 60px 20px; border-bottom: 5px solid var(--gold); }
+        .header h1 { margin: 0; font-size: 32px; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; }
+        .header p { color: var(--gold); font-weight: 700; font-size: 13px; margin-top: 8px; text-transform: uppercase; letter-spacing: 1.5px; }
 
-        .container { flex: 1; width: 100%; max-width: 600px; margin: 0 auto; padding: 25px 15px; }
+        .container { flex: 1; width: 100%; max-width: 600px; margin: 0 auto; padding: 30px 15px; }
 
         /* BUTTONS */
         .btn-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 35px; }
-        .btn-main { padding: 15px; border-radius: 12px; border: none; font-weight: 800; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .btn-main { padding: 16px; border-radius: 12px; border: none; font-weight: 800; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.2s; }
+        .btn-main:active { transform: scale(0.98); }
         .btn-credit { background: var(--green); color: white; }
         .btn-audit { background: var(--gold); color: var(--navy); }
         .btn-call { background: var(--blue); color: white; }
         .btn-red { background: #ff4757; color: white; }
 
         /* CALCULATORS */
-        .section-tag { font-weight: 900; font-size: 13px; color: var(--slate); text-transform: uppercase; margin: 30px 0 15px; border-bottom: 2px solid #ddd; padding-bottom: 5px; display: block; }
+        .section-tag { font-weight: 900; font-size: 13px; color: var(--slate); text-transform: uppercase; margin: 35px 0 15px; border-bottom: 2px solid #ddd; padding-bottom: 5px; display: block; }
         .calc-suite { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 35px; }
-        .calc-card { background: var(--navy); color: white; padding: 18px; border-radius: 20px; border-bottom: 4px solid var(--gold); }
+        .calc-card { background: var(--navy); color: white; padding: 20px; border-radius: 20px; border-bottom: 4px solid var(--gold); }
         .calc-group { margin-bottom: 12px; }
-        .calc-group label { display: block; font-size: 10px; opacity: 0.8; font-weight: 700; margin-bottom: 4px; }
-        .calc-input { width: 100%; padding: 10px; border-radius: 8px; border: none; font-size: 14px; font-weight: 700; background: rgba(255,255,255,0.1); color: white; outline: none; }
-        .res-box { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px; text-align: center; margin-top: 15px; border: 1px solid rgba(197, 160, 40, 0.3); }
-        .res-box b { font-size: 14px; color: var(--gold); display: block; }
+        .calc-group label { display: block; font-size: 10px; opacity: 0.8; font-weight: 700; margin-bottom: 4px; text-transform: uppercase; }
+        .calc-input { width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 14px; font-weight: 700; background: rgba(255,255,255,0.1); color: white; outline: none; }
+        .res-box { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; text-align: center; margin-top: 15px; border: 1px solid rgba(197, 160, 40, 0.3); }
+        .res-box b { font-size: 15px; color: var(--gold); display: block; margin-top: 4px; }
 
         /* SERVICE GRIDS */
-        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        .icon-card { background: white; padding: 25px 10px; border-radius: 15px; text-align: center; border: 1px solid #eee; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .icon-card span { display: block; font-weight: 700; font-size: 14px; margin-top: 10px; }
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .icon-card { background: white; padding: 30px 10px; border-radius: 18px; text-align: center; border: 1px solid #e2e8f0; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition: 0.3s; }
+        .icon-card:hover { border-color: var(--gold); }
+        .icon-card span { display: block; font-weight: 800; font-size: 14px; margin-top: 12px; color: var(--navy); }
 
-        /* MODAL */
-        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 10000; padding: 20px; }
-        .modal-content { background: white; max-width: 450px; margin: 10% auto; border-radius: 25px; padding: 30px; position: relative; }
-        .form-input { width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 10px; margin-bottom: 15px; font-family: inherit; font-size: 14px; }
+        /* INQUIRY FORM */
+        .inquiry-box { background: white; padding: 25px; border-radius: 20px; border: 1px solid #e2e8f0; margin-top: 20px; }
+        .form-input { width: 100%; padding: 14px; border: 2px solid #f1f5f9; border-radius: 10px; margin-bottom: 15px; font-family: inherit; font-size: 14px; background: #f8fafc; }
 
-        /* NEW FOOTER STYLE (MATCHING IMAGE_9117BE) */
-        .footer-new { background: var(--navy); color: white; text-align: center; padding: 40px 20px; border-top: 5px solid var(--gold); margin-top: 40px; }
-        .footer-new h2 { font-size: 18px; font-weight: 900; margin-bottom: 25px; letter-spacing: 1px; }
+        /* FOOTER: PRO DESIGN (MATCHES IMAGE_9117BE) */
+        .footer-pro { background: var(--navy); color: white; text-align: center; padding: 50px 20px; border-top: 5px solid var(--gold); margin-top: 50px; }
+        .footer-pro h2 { font-size: 20px; font-weight: 900; margin-bottom: 30px; letter-spacing: 1px; }
         .footer-btn { 
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            background: rgba(255,255,255,0.08); color: white; text-decoration: none;
-            padding: 15px; margin: 10px auto; border-radius: 8px; width: 100%; max-width: 400px;
-            font-weight: 700; font-size: 14px; border: 1px solid rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            background: rgba(255,255,255,0.06); color: white; text-decoration: none;
+            padding: 18px; margin: 12px auto; border-radius: 10px; width: 100%; max-width: 450px;
+            font-weight: 700; font-size: 15px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;
         }
-        .copyright { font-size: 10px; opacity: 0.5; margin-top: 30px; text-transform: uppercase; }
+        .footer-btn:hover { background: rgba(255,255,255,0.12); border-color: var(--gold); }
+        .copyright { font-size: 11px; opacity: 0.4; margin-top: 40px; text-transform: uppercase; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <div class="logo-box"><img src="logo.jpg" alt="SF Logo"></div>
     <h1>SECUREFUTURE FINANCIALS</h1>
     <p>Expert Consulting | Chennai & Patna</p>
 </div>
 
 <div class="container">
     <div class="btn-stack">
-        <a href="#" class="btn-main btn-red">📄 PROSPECTUS</a>
-        <a href="https://www.cibil.com/freecreditscore" target="_blank" class="btn-main btn-credit">📊 CREDIT SCORE</a>
+        <a href="#" class="btn-main btn-red">📄 DOWNLOAD PROSPECTUS</a>
+        <a href="https://www.cibil.com/freecreditscore" target="_blank" class="btn-main btn-credit">📊 FREE CREDIT SCORE</a>
         <a href="tel:+919080037313" class="btn-main btn-call">📞 CALL SUPPORT</a>
-        <button class="btn-main btn-audit" onclick="openLeadModal('360 Degree Financial Audit')">🚀 FREE AUDIT</button>
+        <a href="#inquiry" class="btn-main btn-audit">🚀 BOOK FREE AUDIT</a>
     </div>
 
     <span class="section-tag">Calculators</span>
     <div class="calc-suite">
         <div class="calc-card">
-            <small style="font-weight:700; opacity:0.8;">SIP (Wealth)</small>
-            <div class="calc-group"><input type="number" id="sA" class="calc-input" value="5000" oninput="cS()"></div>
-            <div class="calc-group"><input type="number" id="sR" class="calc-input" value="12" oninput="cS()"></div>
-            <div class="calc-group"><input type="number" id="sY" class="calc-input" value="10" oninput="cS()"></div>
-            <div class="res-box"><b id="sO">₹ 11,61,695</b></div>
+            <div class="calc-group"><label>Monthly SIP</label><input type="number" id="sA" class="calc-input" value="5000" oninput="cS()"></div>
+            <div class="calc-group"><label>Return %</label><input type="number" id="sR" class="calc-input" value="12" oninput="cS()"></div>
+            <div class="calc-group"><label>Years</label><input type="number" id="sY" class="calc-input" value="10" oninput="cS()"></div>
+            <div class="res-box"><small style="font-size:9px; opacity:0.6;">FUTURE VALUE</small><b id="sO">₹ 11,61,695</b></div>
         </div>
         <div class="calc-card">
-            <small style="font-weight:700; opacity:0.8;">Loan (EMI)</small>
-            <div class="calc-group"><input type="number" id="eA" class="calc-input" value="1000000" oninput="cE()"></div>
-            <div class="calc-group"><input type="number" id="eR" class="calc-input" value="9" oninput="cE()"></div>
-            <div class="calc-group"><input type="number" id="eY" class="calc-input" value="15" oninput="cE()"></div>
-            <div class="res-box"><b id="eO">₹ 10,143</b></div>
+            <div class="calc-group"><label>Loan Amount</label><input type="number" id="eA" class="calc-input" value="1000000" oninput="cE()"></div>
+            <div class="calc-group"><label>Rate %</label><input type="number" id="eR" class="calc-input" value="9" oninput="cE()"></div>
+            <div class="calc-group"><label>Years</label><input type="number" id="eY" class="calc-input" value="15" oninput="cE()"></div>
+            <div class="res-box"><small style="font-size:9px; opacity:0.6;">MONTHLY EMI</small><b id="eO">₹ 10,143</b></div>
         </div>
     </div>
 
     <span class="section-tag">Insurance Portfolio</span>
     <div class="grid">
-        <div class="icon-card" onclick="openLeadModal('Health Insurance')">🏥<span>Health</span></div>
-        <div class="icon-card" onclick="openLeadModal('Term Life')">🛡️<span>Term Life</span></div>
-        <div class="icon-card" onclick="openLeadModal('Car Insurance')">🚗<span>Car</span></div>
-        <div class="icon-card" onclick="openLeadModal('Bike Insurance')">🛵<span>Bike</span></div>
+        <div class="icon-card">🏥<span>Health</span></div>
+        <div class="icon-card">🛡️<span>Term Life</span></div>
+        <div class="icon-card">🚗<span>Car</span></div>
+        <div class="icon-card">🛵<span>Bike</span></div>
     </div>
 
     <span class="section-tag">Investment & Finance</span>
     <div class="grid">
-        <div class="icon-card" onclick="openLeadModal('Mutual Funds')">📈<span>Mutual Funds</span></div>
-        <div class="icon-card" onclick="openLeadModal('24K Gold')">🏆<span>24K Gold</span></div>
-        <div class="icon-card" onclick="openLeadModal('Business Loan')">🏢<span>Business</span></div>
-        <div class="icon-card" onclick="openLeadModal('Home Loan')">🏠<span>Home Loan</span></div>
+        <div class="icon-card">📈<span>Mutual Funds</span></div>
+        <div class="icon-card">🏆<span>24K Gold</span></div>
+        <div class="icon-card">🏢<span>Business</span></div>
+        <div class="icon-card">🏠<span>Home Loan</span></div>
+    </div>
+
+    <span id="inquiry" class="section-tag">Quick Inquiry</span>
+    <div class="inquiry-box">
+        <input type="text" id="uName" class="form-input" placeholder="Full Name">
+        <input type="text" id="uReq" class="form-input" placeholder="Your Requirement (e.g. Car Insurance)">
+        <button class="btn-main btn-credit" style="width:100%" onclick="sendWA()">Send to WhatsApp ✅</button>
     </div>
 </div>
 
-<div id="leadModal" class="modal">
-    <div class="modal-content">
-        <h2 id="mTitle" style="margin:0 0 20px; color:var(--navy);">Enquiry</h2>
-        <input type="text" id="fName" class="form-input" placeholder="Your Full Name">
-        <input type="text" id="fObj" class="form-input" placeholder="Requirement Details">
-        <button class="btn-main btn-credit" style="width:100%" onclick="submitLead()">Submit ✅</button>
-        <p onclick="closeModal()" style="text-align:center; color:red; cursor:pointer; margin-top:15px; font-weight:700;">Close</p>
-    </div>
-</div>
-
-<footer class="footer-new">
+<footer class="footer-pro">
     <h2>SECUREFUTURE FINANCIALS</h2>
-    <a href="mailto:securefuturefinanicials@gmail.com" class="footer-btn">📧 Email Support</a>
-    <a href="https://wa.me/919080037313" class="footer-btn">💬 WhatsApp Support</a>
-    <a href="tel:+919080037313" class="footer-btn">📞 Call +91 90800 37313</a>
+    
+    <a href="mailto:securefuturefinanicials@gmail.com" class="footer-btn">
+        📧 Email Support
+    </a>
+    
+    <a href="https://wa.me/919080037313" class="footer-btn">
+        💬 WhatsApp Support
+    </a>
+    
+    <a href="tel:+919080037313" class="footer-btn">
+        📞 Call Support: 90800 37313
+    </a>
+
     <p class="copyright">SECUREFUTURE FINANCIALS © 2026</p>
 </footer>
 
 <script>
-    let curS = "";
-    function openLeadModal(s) { curS = s; document.getElementById('mTitle').innerText = s; document.getElementById('leadModal').style.display = 'block'; }
-    function closeModal() { document.getElementById('leadModal').style.display = 'none'; }
-    function submitLead() {
-        const name = document.getElementById('fName').value;
-        const obj = document.getElementById('fObj').value;
-        if(!name) { alert("Enter Name"); return; }
-        window.open(`https://wa.me/919080037313?text=*Inquiry:* ${curS}%0A*Name:* ${name}%0A*Details:* ${obj}`, '_blank');
-        closeModal();
+    function sendWA() {
+        const name = document.getElementById('uName').value;
+        const req = document.getElementById('uReq').value;
+        if(!name || !req) { alert("Please fill all fields"); return; }
+        window.open(`https://wa.me/919080037313?text=*New Inquiry*%0A*Name:* ${name}%0A*Requirement:* ${req}`, '_blank');
     }
     function cS() {
         let p = parseFloat(document.getElementById('sA').value), i = parseFloat(document.getElementById('sR').value)/12/100, n = parseFloat(document.getElementById('sY').value)*12;
