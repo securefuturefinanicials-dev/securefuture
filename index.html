@@ -3,177 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SecureFuture Financials | Complete Portal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>SecureFuture Financials | Expert Consulting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --navy: #001f3f; 
-            --gold: #ffcc00; 
-            --light: #f4f7f9; 
-            --green: #25D366; 
-            --red: #ff4d4d;
-            --blue: #5865F2;
-            --gradient: linear-gradient(180deg, #001f3f 0%, #002d5a 100%);
-        }
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); overflow-x: hidden; }
+        :root { --navy: #001f3f; --gold: #c5a028; --white: #ffffff; --light: #f4f7f9; --green: #25D366; --blue: #007bff; --slate: #64748b; }
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); display: flex; flex-direction: column; min-height: 100vh; }
 
         /* HEADER & LOGO FIX */
-        .header { background: var(--gradient); color: white; text-align: center; padding: 40px 20px 30px; border-bottom: 5px solid var(--gold); }
-        .logo-circle { 
-            width: 100px; height: 100px; background: white; border-radius: 50%; 
-            margin: 0 auto 15px; border: 4px solid var(--gold); display: flex; 
-            align-items: center; justify-content: center; overflow: hidden;
-            box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
-        }
-        .logo-circle img { width: 100%; height: 100%; object-fit: contain; }
+        .header { background: var(--navy); color: white; text-align: center; padding: 40px 20px; border-bottom: 5px solid var(--gold); }
+        .logo-box { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--gold); margin: 0 auto 15px; background: white; overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative; }
+        .logo-box img { width: 100%; height: 100%; object-fit: contain; padding: 5px; }
+        .header h1 { margin: 0; font-size: 24px; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; }
+        .header p { color: var(--gold); font-weight: 700; font-size: 11px; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
 
-        .header h1 { margin: 0; font-size: 24px; font-weight: 900; letter-spacing: 1px; }
-        .header p { color: var(--gold); font-weight: 700; margin: 5px 0 0; font-size: 14px; }
+        .container { flex: 1; width: 100%; max-width: 700px; margin: 0 auto; padding: 25px 15px; }
 
-        /* FLOATING QUOTE */
-        .quote-box {
-            border: 1.5px dashed var(--gold); padding: 15px; border-radius: 12px;
-            margin: 20px auto 0; max-width: 500px; font-style: italic;
-            font-size: 14px; line-height: 1.5; color: var(--gold); font-weight: 600;
-        }
-
-        .main-content { max-width: 600px; margin: 0 auto; padding: 20px; }
+        /* FLOATING HELP */
+        .floating-help { position: fixed; bottom: 30px; right: 20px; background: var(--green); color: white; padding: 15px 25px; border-radius: 50px; font-weight: 800; box-shadow: 0 10px 25px rgba(0,0,0,0.2); text-decoration: none; z-index: 9999; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
         /* BUTTONS */
-        .btn-stack { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
-        .action-btn { 
-            width: 100%; padding: 18px; border: none; border-radius: 12px; font-weight: 900;
-            color: white; font-size: 15px; cursor: pointer; text-transform: uppercase;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.2s;
-        }
-        .btn-red { background: var(--red); }
-        .btn-green { background: var(--green); }
-        .btn-blue { background: var(--blue); }
-        .btn-gold { background: var(--gold); color: var(--navy); }
+        .btn-stack { display: flex; flex-direction: column; gap: 12px; margin-bottom: 35px; }
+        .btn-main { width: 100%; padding: 18px; border-radius: 12px; border: none; font-weight: 800; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; transition: 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .btn-credit { background: var(--green); color: white; }
+        .btn-audit { background: var(--gold); color: var(--navy); }
+        .btn-call { background: var(--blue); color: white; }
 
-        /* TRENDING SECTION */
-        .label { font-size: 12px; font-weight: 900; color: #666; display: flex; align-items: center; gap: 8px; margin: 25px 0 15px; }
-        .label::after { content: ""; flex: 1; height: 1px; background: #ddd; }
-        
-        .trending-card { 
-            background: white; border-radius: 20px; overflow: hidden; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #eee;
-        }
-        .trending-card img { width: 100%; height: 180px; object-fit: cover; }
-        .trending-body { padding: 20px; }
-        .trending-body h3 { margin: 0; font-size: 18px; font-weight: 900; }
+        /* TRENDING */
+        .section-tag { font-weight: 900; font-size: 13px; color: var(--slate); text-transform: uppercase; margin: 30px 0 15px; border-bottom: 2px solid #ddd; padding-bottom: 5px; }
+        .trend-card { background: white; border-radius: 20px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); cursor: pointer; border: 1px solid #eee; }
+        .trend-img { width: 100%; height: 180px; object-fit: cover; }
+        .trend-info { padding: 15px; }
 
         /* CALCULATORS */
-        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
-        .calc-box { background: var(--navy); color: white; padding: 20px; border-radius: 20px; border-bottom: 5px solid var(--gold); }
-        .calc-title { font-size: 11px; font-weight: 900; color: var(--gold); text-align: center; margin-bottom: 15px; }
-        .calc-input { 
-            width: 100%; padding: 10px; border-radius: 8px; border: none; 
-            background: rgba(255,255,255,0.1); color: white; font-weight: 700; margin-bottom: 10px;
-        }
-        .calc-res { background: rgba(255,204,0,0.1); padding: 10px; border-radius: 10px; text-align: center; border: 1px solid var(--gold); }
-        .calc-res b { color: var(--gold); display: block; font-size: 16px; }
+        .calc-suite { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 35px; }
+        .calc-card { background: var(--navy); color: white; padding: 18px; border-radius: 20px; border-bottom: 4px solid var(--gold); }
+        .calc-group { margin-bottom: 12px; }
+        .calc-group label { display: block; font-size: 10px; opacity: 0.8; font-weight: 700; margin-bottom: 4px; }
+        .calc-input { width: 100%; padding: 10px; border-radius: 8px; border: none; font-size: 14px; font-weight: 700; background: rgba(255,255,255,0.1); color: white; outline: none; }
+        .res-box { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px; text-align: center; margin-top: 15px; border: 1px solid rgba(197, 160, 40, 0.3); }
+        .res-box b { font-size: 15px; color: var(--gold); display: block; }
 
-        /* SERVICE GRIDS */
+        /* GRIDS */
         .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        .service-card { 
-            background: white; padding: 25px 10px; border-radius: 18px; text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #eee; cursor: pointer;
-        }
-        .service-card span { display: block; margin-top: 10px; font-weight: 800; font-size: 14px; }
+        .icon-card { background: white; padding: 25px 10px; border-radius: 15px; text-align: center; border: 1px solid #eee; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .icon-card span { display: block; font-weight: 700; font-size: 14px; margin-top: 10px; }
+
+        /* MODAL POPUP */
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 10000; padding: 20px; }
+        .modal-content { background: white; max-width: 450px; margin: 10% auto; border-radius: 25px; padding: 30px; position: relative; }
+        .modal-h { margin: 0 0 20px; font-size: 20px; font-weight: 900; color: var(--navy); border-bottom: 3px solid var(--gold); display: inline-block; }
+        .form-input { width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 10px; margin-bottom: 15px; font-family: inherit; font-size: 14px; }
+        .upload-hint { font-size: 11px; color: var(--slate); margin-top: -10px; margin-bottom: 15px; font-weight: 600; display: block; }
+        .btn-submit { background: var(--navy); color: white; width: 100%; padding: 15px; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; }
 
         /* FOOTER */
-        .footer { background: var(--navy); color: white; text-align: center; padding: 40px 20px; margin-top: 40px; }
-        .footer-link { 
-            background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px;
-            display: block; color: white; text-decoration: none; margin-bottom: 10px; font-weight: 700;
-        }
+        footer { background: var(--navy); color: white; text-align: center; padding: 40px 20px; margin-top: auto; border-top: 5px solid var(--gold); }
+        .footer-link { color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; margin: 12px 0; font-size: 14px; font-weight: 600; padding: 12px; background: rgba(255,255,255,0.05); border-radius: 10px; }
+        .copyright { font-size: 10px; opacity: 0.5; margin-top: 25px; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
+<a href="https://wa.me/919080037313?text=Hi, I need urgent help with my financial query." class="floating-help">💬 Quick Help</a>
+
 <div class="header">
-    <div class="logo-circle">
-        <img src="logo.jpeg" alt="Logo" onerror="this.src='https://via.placeholder.com/150/FFFFFF/001f3f?text=SF'">
-    </div>
+    <div class="logo-box"><img src="logo.jpeg" alt="SecureFuture Logo"></div>
     <h1>SECUREFUTURE FINANCIALS</h1>
-    <p>EXPERT CONSULTING | CHENNAI & PATNA</p>
-    
-    <div class="quote-box">
-        "You will get all services of your choice company with the best discounts. <br>Our motto: <b>First Try, Then Decide.</b>"
-    </div>
+    <p>Expert Consulting | Chennai & Patna</p>
 </div>
 
-<div class="main-content">
+<div class="container">
     <div class="btn-stack">
-        <button class="action-btn btn-red" onclick="goWA('Download Prospectus')">📄 Download Prospectus</button>
-        <button class="action-btn btn-green" onclick="window.open('https://www.cibil.com/', '_blank')">📊 Free Credit Score</button>
-        <button class="action-btn btn-blue" onclick="goWA('Refer a Friend')">🤝 Refer a Friend</button>
-        <button class="action-btn btn-gold" onclick="goWA('Book Audit')">🚀 Book Free 360° Audit</button>
+        <button class="btn-main btn-credit" onclick="window.open('https://www.cibil.com/freecreditscore', '_blank')">📊 CHECK FREE CREDIT SCORE</button>
+        <button class="btn-main btn-audit" onclick="openLeadModal('360 Degree Financial Audit')">🚀 BOOK FREE 360° AUDIT</button>
+        <a href="tel:+919080037313" class="btn-main btn-call">📞 CALL NOW</a>
     </div>
 
-    <div class="label">🔥 TRENDING NOW</div>
-    <div class="trending-card" onclick="goWA('Bike Insurance')">
-        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=600&q=80">
-        <div class="trending-body">
-            <h3>🛵 Bike & Superbike</h3>
-            <p style="font-size: 13px; color: #666; margin: 8px 0 0;">Instant quotes from top companies with max discounts.</p>
+    <span class="section-tag">Trending Insurance</span>
+    <div class="trend-card" onclick="openLeadModal('Bike Insurance')">
+        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80" class="trend-img">
+        <div class="trend-info">
+            <h3 style="margin:0">🛵 Bike & Superbike</h3>
+            <p style="font-size: 12px; color: #666; margin: 5px 0;">Zero paperwork. Instant policy issuance.</p>
         </div>
     </div>
 
-    <div class="label">🧮 SMART CALCULATORS</div>
-    <div class="calc-grid">
-        <div class="calc-box">
-            <div class="calc-title">SIP (WEALTH)</div>
-            <input type="number" id="sA" class="calc-input" value="5000" oninput="cS()">
-            <input type="number" id="sR" class="calc-input" value="12" oninput="cS()">
-            <input type="number" id="sY" class="calc-input" value="10" oninput="cS()">
-            <div class="calc-res"><small>FUTURE VALUE</small><b id="sO">₹ 11,61,695</b></div>
+    <span class="section-tag">Calculators (Wealth vs Debt)</span>
+    <div class="calc-suite">
+        <div class="calc-card">
+            <h4>💰 SIP (Wealth)</h4>
+            <div class="calc-group"><label>Monthly SIP (₹)</label><input type="number" id="sA" class="calc-input" value="5000" oninput="cS()"></div>
+            <div class="calc-group"><label>Growth Rate (%)</label><input type="number" id="sR" class="calc-input" value="12" oninput="cS()"></div>
+            <div class="calc-group"><label>Tenure (Yrs)</label><input type="number" id="sY" class="calc-input" value="10" oninput="cS()"></div>
+            <div class="res-box"><span style="font-size:9px;opacity:0.7">EST. WEALTH</span><b id="sO">₹ 11,61,695</b></div>
         </div>
-        <div class="calc-box">
-            <div class="calc-title">LOAN (EMI)</div>
-            <input type="number" id="eA" class="calc-input" value="1000000" oninput="cE()">
-            <input type="number" id="eR" class="calc-input" value="9" oninput="cE()">
-            <input type="number" id="eY" class="calc-input" value="15" oninput="cE()">
-            <div class="calc-res"><small>MONTHLY EMI</small><b id="eO">₹ 10,143</b></div>
+        <div class="calc-card">
+            <h4>🏠 Loan (EMI)</h4>
+            <div class="calc-group"><label>Loan Amount (₹)</label><input type="number" id="eA" class="calc-input" value="1000000" oninput="cE()"></div>
+            <div class="calc-group"><label>Rate (%)</label><input type="number" id="eR" class="calc-input" value="9" oninput="cE()"></div>
+            <div class="calc-group"><label>Tenure (Yrs)</label><input type="number" id="eY" class="calc-input" value="15" oninput="cE()"></div>
+            <div class="res-box"><span style="font-size:9px;opacity:0.7">MONTHLY EMI</span><b id="eO">₹ 10,143</b></div>
         </div>
     </div>
 
-    <div class="label">🛡️ INSURANCE PORTFOLIO</div>
+    <span class="section-tag">Insurance Portfolio</span>
     <div class="grid">
-        <div class="service-card" onclick="goWA('Health Insurance')">🏥<span>Health</span></div>
-        <div class="service-card" onclick="goWA('Life Insurance')">🛡️<span>Life</span></div>
-        <div class="service-card" onclick="goWA('Car Insurance')">🚗<span>Car</span></div>
-        <div class="service-card" onclick="goWA('Commercial Vehicle')">🚛<span>Commercial</span></div>
+        <div class="icon-card" onclick="openLeadModal('Health Insurance')">🏥<span>Health</span></div>
+        <div class="icon-card" onclick="openLeadModal('Term Life Plan')">🛡️<span>Term Life</span></div>
+        <div class="icon-card" onclick="openLeadModal('Car Insurance')">🚗<span>Car</span></div>
+        <div class="icon-card" onclick="openLeadModal('Commercial Vehicle')">🚛<span>Commercial</span></div>
     </div>
 
-    <div class="label">📈 FINANCE & INVESTMENT</div>
+    <span class="section-tag">Investment & Finance</span>
     <div class="grid">
-        <div class="service-card" onclick="goWA('Mutual Funds')">📈<span>Mutual Funds</span></div>
-        <div class="service-card" onclick="goWA('24K Gold')">🏆<span>24K Gold</span></div>
-        <div class="service-card" onclick="goWA('Business Loan')">🏢<span>Business</span></div>
-        <div class="service-card" onclick="goWA('Home Loan')">🏠<span>Home Loan</span></div>
+        <div class="icon-card" onclick="openLeadModal('Mutual Funds')">📈<span>Mutual Funds</span></div>
+        <div class="icon-card" onclick="openLeadModal('24K Gold')">🏆<span>24K Gold</span></div>
+        <div class="icon-card" onclick="openLeadModal('Business Loan')">🏢<span>Business</span></div>
+        <div class="icon-card" onclick="openLeadModal('Home Loan')">🏠<span>Home Loan</span></div>
     </div>
 </div>
 
-<div class="footer">
-    <div style="font-weight: 900; margin-bottom: 25px;">SECUREFUTURE FINANCIALS</div>
-    <a href="mailto:securefuturefinanicials@gmail.com" class="footer-link">📧 Email Support</a>
-    <a href="https://wa.me/919080037313" class="footer-link">💬 WhatsApp Support</a>
-    <a href="tel:+919080037313" class="footer-link">📞 Call +91 90800 37313</a>
-    <p style="font-size: 11px; opacity: 0.5; margin-top: 30px;">SECUREFUTURE FINANCIALS © 2026</p>
+<div id="leadModal" class="modal">
+    <div class="modal-content">
+        <h2 id="mTitle" class="modal-h">Enquiry</h2>
+        <input type="text" id="fName" class="form-input" placeholder="Your Full Name">
+        
+        <div id="vFields" style="display:none">
+            <input type="text" id="regNo" class="form-input" placeholder="Registration No. (e.g. TN01...)">
+            <span class="upload-hint">📎 Please upload RC/Old Policy copy on WhatsApp for quick response.</span>
+        </div>
+
+        <div id="tFields" style="display:none">
+            <input type="number" id="tAge" class="form-input" placeholder="Your Age">
+            <select id="tSmoke" class="form-input">
+                <option value="">Are you a Smoker?</option>
+                <option value="Yes">Yes, I Smoke</option>
+                <option value="No">No, I don't Smoke</option>
+            </select>
+            <input type="text" id="tIncome" class="form-input" placeholder="Approx Annual Income">
+        </div>
+
+        <input type="text" id="fObj" class="form-input" placeholder="Objective (e.g. Save Tax, Best Premium)">
+        <button class="btn-submit" onclick="submitLead()">Submit to WhatsApp ✅</button>
+        <p onclick="closeModal()" style="text-align:center; color:red; cursor:pointer; margin-top:15px; font-weight:700;">Close</p>
+    </div>
 </div>
+
+<footer>
+    <p style="font-weight: 800; margin-bottom: 20px; font-size: 16px;">SECUREFUTURE FINANCIALS</p>
+    <a href="mailto:securefuturefinanicials@gmail.com" class="footer-link">📧 securefuturefinanicials@gmail.com</a>
+    <a href="https://wa.me/919080037313" class="footer-link">💬 WhatsApp: 90800 37313</a>
+    <a href="tel:+919080037313" class="footer-link">📞 Call Support: 90800 37313</a>
+    <p class="copyright">SECUREFUTURE FINANCIALS © 2026</p>
+</footer>
 
 <script>
-    function goWA(s) { window.open(`https://wa.me/919080037313?text=Hi, I am interested in ${s}.`, '_blank'); }
+    let currentS = "";
+    function openLeadModal(s) {
+        currentS = s;
+        document.getElementById('mTitle').innerText = s;
+        document.getElementById('leadModal').style.display = 'block';
+        document.getElementById('vFields').style.display = (s.includes('Car') || s.includes('Bike')) ? 'block' : 'none';
+        document.getElementById('tFields').style.display = (s.includes('Term')) ? 'block' : 'none';
+    }
+    function closeModal() { document.getElementById('leadModal').style.display = 'none'; }
+
+    function submitLead() {
+        const name = document.getElementById('fName').value;
+        const obj = document.getElementById('fObj').value;
+        if(!name) { alert("Please enter your name"); return; }
+        
+        let msg = `*New Inquiry*%0A*Service:* ${currentS}%0A*Name:* ${name}%0A*Objective:* ${obj}`;
+        
+        if(currentS.includes('Car') || currentS.includes('Bike')) {
+            msg += `%0A*Reg No:* ${document.getElementById('regNo').value}%0A_Note: Attaching RC/Policy copy next._`;
+        }
+        if(currentS.includes('Term')) {
+            msg += `%0A*Age:* ${document.getElementById('tAge').value}%0A*Smoker:* ${document.getElementById('tSmoke').value}%0A*Income:* ${document.getElementById('tIncome').value}`;
+        }
+        
+        window.open(`https://wa.me/919080037313?text=${msg}`, '_blank');
+        closeModal();
+    }
+
     function cS() {
-        let p = parseFloat(document.getElementById('sA').value), i = parseFloat(document.getElementById('sR').value)/12/100, n = parseFloat(document.getElementById('sY').value)*12;
-        if(p && i && n) document.getElementById('sO').innerText = "₹ " + Math.round(p * ((Math.pow(1+i,n)-1)/i) * (1+i)).toLocaleString('en-IN');
+        let p = parseFloat(document.getElementById('sA').value);
+        let i = parseFloat(document.getElementById('sR').value) / 12 / 100;
+        let n = parseFloat(document.getElementById('sY').value) * 12;
+        if(p > 0 && i > 0 && n > 0) {
+            let fv = p * ((Math.pow(1 + i, n) - 1) / i) * (1 + i);
+            document.getElementById('sO').innerText = "₹ " + Math.round(fv).toLocaleString('en-IN');
+        }
     }
     function cE() {
-        let p = parseFloat(document.getElementById('eA').value), r = parseFloat(document.getElementById('eR').value)/12/100, n = parseFloat(document.getElementById('eY').value)*12;
-        if(p && r && n) document.getElementById('eO').innerText = "₹ " + Math.round(p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1)).toLocaleString('en-IN');
+        let p = parseFloat(document.getElementById('eA').value);
+        let r = parseFloat(document.getElementById('eR').value) / 12 / 100;
+        let n = parseFloat(document.getElementById('eY').value) * 12;
+        if(p > 0 && r > 0 && n > 0) {
+            let emi = p * r * Math.pow(1+r, n) / (Math.pow(1+r, n) - 1);
+            document.getElementById('eO').innerText = "₹ " + Math.round(emi).toLocaleString('en-IN');
+        }
     }
 </script>
 </body>
