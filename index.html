@@ -20,7 +20,7 @@
         .header h1 { margin: 5px 0 0; font-size: 18px; font-weight: 700; opacity: 0.8; letter-spacing: 2px; }
         .header p { color: var(--gold); font-weight: 800; font-size: 13px; margin-top: 15px; }
 
-        /* MAIN WRAPPER - This stops everything from going to the corner */
+        /* MAIN WRAPPER */
         .main-container { width: 100%; max-width: 600px; margin: 0 auto; padding: 25px 15px; }
 
         /* BUTTONS */
@@ -49,7 +49,15 @@
         .service-card { background: white; padding: 20px; border-radius: 15px; text-align: center; border: 1px solid #e2e8f0; }
         .service-card span { display: block; font-weight: 700; margin-top: 10px; }
 
-        footer { background: var(--navy); color: white; text-align: center; padding: 40px 20px; margin-top: 40px; }
+        /* FOOTER WITH FUNCTIONAL LINKS */
+        footer { background: var(--navy); color: white; text-align: center; padding: 50px 20px; margin-top: 40px; border-top: 6px solid var(--gold); }
+        .footer-brand { font-weight: 900; font-size: 20px; margin-bottom: 20px; display: block; }
+        .contact-link { 
+            color: var(--white); text-decoration: none; display: block; 
+            margin: 10px 0; font-weight: 600; font-size: 14px; transition: color 0.3s;
+        }
+        .contact-link:hover { color: var(--gold); }
+        .copyright { font-size: 10px; margin-top: 30px; opacity: 0.5; letter-spacing: 1px; }
     </style>
 </head>
 <body>
@@ -62,9 +70,9 @@
 
 <div class="main-container">
     <div class="btn-grid">
-        <div class="btn-main btn-red">📄 PROSPECTUS</div>
-        <div class="btn-main btn-green">📊 CREDIT SCORE</div>
-        <div class="btn-main btn-blue">🤝 REFER FRIEND</div>
+        <a href="mailto:securefuturefinanicials@gmail.com" class="btn-main btn-red">📄 CONTACT EMAIL</a>
+        <a href="https://www.cibil.com/freecreditscore" target="_blank" class="btn-main btn-green">📊 CREDIT SCORE</a>
+        <a href="tel:+919080037313" class="btn-main btn-blue">📞 CALL SUPPORT</a>
         <div class="btn-main btn-gold">🚀 FREE AUDIT</div>
     </div>
 
@@ -108,9 +116,10 @@
 </div>
 
 <footer>
-    <p style="font-weight: 800; margin-bottom: 5px;">SecureFuture Financials</p>
-    <p style="font-size: 12px; opacity: 0.7;">Contact: +91 90800 37313</p>
-    <p style="font-size: 10px; margin-top: 20px; opacity: 0.4;">© 2026 SECUREFUTURE. All Rights Reserved.</p>
+    <span class="footer-brand">SecureFuture Financials</span>
+    <a href="mailto:securefuturefinanicials@gmail.com" class="contact-link">📧 securefuturefinanicials@gmail.com</a>
+    <a href="tel:+919080037313" class="contact-link">📞 +91 90800 37313</a>
+    <p class="copyright">© 2026 SECUREFUTURE FINANCIALS. ALL RIGHTS RESERVED.</p>
 </footer>
 
 <script>
