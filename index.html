@@ -3,52 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SecureFuture Financials | Master Portal</title>
+    <title>SecureFuture Financials</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --navy: #001f3f; --gold: #c5a028; --light: #f4f7f9; --green: #25D366; --red: #ff4757; }
+        :root { --navy: #001f3f; --gold: #c5a028; --light: #f4f7f9; --green: #25D366; --red: #ff4757; --blue: #007bff; }
         body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); }
         
-        /* LIVE TICKER */
-        .market-bar { background: #000; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
+        .market-bar { background: #000; border-bottom: 2px solid var(--gold); }
 
-        /* HEADER & LOGO */
-        .header { background: var(--navy); color: white; text-align: center; padding: 30px 20px; border-bottom: 4px solid var(--gold); }
-        .logo-circle { width: 80px; height: 80px; background: white; border-radius: 50%; margin: 0 auto 15px; border: 3px solid var(--gold); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .header h1 { margin: 0; font-size: 24px; font-weight: 900; }
+        /* HEADER - Logo removed as requested */
+        .header { background: var(--navy); color: white; text-align: center; padding: 50px 20px; border-bottom: 5px solid var(--gold); }
+        .header h1 { margin: 0; font-size: 32px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
+        .header p { color: var(--gold); font-weight: 700; margin-top: 10px; font-size: 16px; }
 
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .container { max-width: 650px; margin: 0 auto; padding: 20px; }
 
-        /* TOP ACTION BUTTONS */
-        .action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 25px; }
-        .btn-action { padding: 15px; border-radius: 8px; border: none; color: white; font-weight: 800; cursor: pointer; text-decoration: none; text-align: center; font-size: 13px; }
+        /* TOP BUTTONS (image_9027b9.png) */
+        .action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+        .btn-top { padding: 18px; border-radius: 12px; border: none; color: white; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 14px; text-decoration: none; }
+        .bg-red { background: var(--red); }
+        .bg-white-btn { background: white; color: var(--navy); border: 1px solid #ddd; }
+        .bg-blue { background: var(--blue); }
+        .bg-gold { background: var(--gold); }
 
-        /* CALCULATORS */
-        .section-tag { font-weight: 900; font-size: 12px; text-transform: uppercase; margin: 25px 0 10px; display: block; border-left: 4px solid var(--gold); padding-left: 10px; }
-        .calc-card { background: var(--navy); color: white; padding: 20px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .calc-input { width: 100%; padding: 12px; border-radius: 6px; border: none; margin-top: 8px; font-weight: 700; font-size: 16px; }
+        /* FUNCTIONAL CALCULATORS (Replacing dummy with image_917955.jpg logic) */
+        .section-tag { font-weight: 900; font-size: 13px; text-transform: uppercase; margin: 30px 0 15px; display: block; border-left: 5px solid var(--gold); padding-left: 12px; }
+        .calc-card { background: var(--navy); color: white; padding: 25px; border-radius: 18px; margin-bottom: 20px; }
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 15px; }
+        .calc-group label { font-size: 10px; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 5px; opacity: 0.8; }
+        .calc-input { width: 100%; padding: 12px; border-radius: 8px; border: none; font-weight: 800; font-size: 15px; text-align: center; box-sizing: border-box; }
+        .calc-res { color: var(--gold); font-weight: 900; font-size: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; }
 
-        /* SERVICE GRID */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .icon-card { background: white; padding: 25px 15px; border-radius: 15px; text-align: center; border: 1px solid #ddd; cursor: pointer; transition: 0.3s; }
-        .icon-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .icon-card i { font-size: 24px; color: var(--gold); margin-bottom: 10px; display: block; }
-        .icon-card span { font-weight: 700; font-size: 14px; }
+        /* SERVICE GRID (image_9117be.png) */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .service-card { background: white; padding: 30px 15px; border-radius: 20px; text-align: center; border: 1px solid #eee; cursor: pointer; transition: 0.3s; }
+        .service-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+        .service-card i { font-size: 28px; color: var(--gold); margin-bottom: 12px; display: block; }
+        .service-card span { font-weight: 800; font-size: 15px; }
 
-        /* MODALS */
+        /* MODAL POPUP (image_908931.png) */
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 10000; padding: 20px; overflow-y: auto; }
-        .modal-content { background: white; max-width: 450px; margin: 5% auto; border-radius: 20px; padding: 30px; position: relative; }
-        .form-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 15px; font-family: inherit; }
-        .form-label { font-size: 11px; font-weight: 800; text-transform: uppercase; color: #666; margin-bottom: 5px; display: block; }
+        .modal-content { background: white; max-width: 450px; margin: 5% auto; border-radius: 25px; padding: 35px; }
+        .form-input { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; margin-bottom: 15px; font-family: inherit; font-size: 15px; }
+        .btn-submit { width: 100%; background: var(--green); color: white; border: none; padding: 18px; border-radius: 12px; font-weight: 900; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; }
 
-        /* FOOTER & SOCIALS */
-        .footer { background: var(--navy); color: white; text-align: center; padding: 40px 20px; margin-top: 40px; }
-        .social-icons { margin: 20px 0; display: flex; justify-content: center; gap: 20px; }
-        .social-icons a { color: white; font-size: 24px; transition: 0.3s; }
-        .social-icons a:hover { color: var(--gold); }
+        /* FOOTER & SOCIALS (image_8ecafe.png) */
+        .footer { background: var(--navy); color: white; text-align: center; padding: 50px 20px; border-top: 5px solid var(--gold); }
+        .social-row { margin-bottom: 25px; display: flex; justify-content: center; gap: 30px; }
+        .social-row a { color: var(--gold); text-decoration: none; font-weight: 800; font-size: 16px; transition: 0.3s; }
+        .social-row a:hover { opacity: 0.7; }
+        .footer-link { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin: 10px 0; display: block; color: white; text-decoration: none; font-weight: 600; font-size: 14px; }
         
-        .wa-float { position: fixed; bottom: 20px; right: 20px; background: var(--green); width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 999; color: white; text-decoration: none; }
+        .wa-float { position: fixed; bottom: 25px; right: 25px; background: var(--green); width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; color: white; box-shadow: 0 5px 20px rgba(0,0,0,0.4); z-index: 999; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -63,119 +70,119 @@
 </div>
 
 <div class="header">
-    <div class="logo-circle"><img src="your-logo-url.png" alt="SF" style="width:70%;"></div>
     <h1>SECUREFUTURE FINANCIALS</h1>
-    <p style="color:var(--gold); font-weight:700; margin-top:5px;">Expert Consulting | Chennai & Patna</p>
+    <p>Expert Consulting | Chennai & Patna</p>
 </div>
 
 <div class="container">
     <div class="action-grid">
-        <a href="#" class="btn-action" style="background:var(--red);" onclick="showPopup('Prospectus')"><i class="fa fa-file-pdf"></i> PROSPECTUS</a>
-        <a href="https://www.cibil.com/" target="_blank" class="btn-action" style="background:var(--green);"><i class="fa fa-chart-line"></i> CREDIT SCORE</a>
-        <a href="tel:+919080037313" class="btn-action" style="background:var(--navy); border:1px solid white;"><i class="fa fa-phone"></i> CALL SUPPORT</a>
-        <a href="#" class="btn-action" style="background:var(--gold);" onclick="showPopup('Audit')"><i class="fa fa-search-dollar"></i> FREE AUDIT</a>
+        <button class="btn-top bg-red" onclick="openPopup('Prospectus')"><i class="fa fa-file-pdf"></i> PROSPECTUS</button>
+        <a href="https://www.cibil.com/" target="_blank" class="btn-top bg-white-btn"><i class="fa fa-chart-line" style="color:#6c5ce7"></i> CREDIT SCORE</a>
+        <a href="tel:+919080037313" class="btn-top bg-blue"><i class="fa fa-phone-alt"></i> CALL SUPPORT</a>
+        <button class="btn-top bg-gold" onclick="openPopup('Free Audit')"><i class="fa fa-search-dollar"></i> FREE AUDIT</button>
     </div>
 
-    <span class="section-tag">Smart Financial Tools</span>
+    <span class="section-tag">Functional Smart Calculators</span>
     <div class="calc-card">
-        <label class="form-label" style="color:white;">SIP Monthly Investment (₹)</label>
-        <input type="number" id="sipA" class="calc-input" value="5000" oninput="doSIP()">
-        <p id="sipRes" style="color:var(--gold); font-weight:900; margin-top:12px; font-size:18px;">Future Value: ₹ 11,61,695</p>
+        <div class="calc-grid">
+            <div class="calc-group"><label>Monthly SIP</label><input type="number" id="sipA" class="calc-input" value="5000" oninput="runSIP()"></div>
+            <div class="calc-group"><label>Return %</label><input type="number" id="sipR" class="calc-input" value="12" oninput="runSIP()"></div>
+            <div class="calc-group"><label>Tenure (Y)</label><input type="number" id="sipY" class="calc-input" value="10" oninput="runSIP()"></div>
+        </div>
+        <div class="calc-res" id="sipOut">FUTURE VALUE: ₹ 11,61,695</div>
     </div>
 
     <div class="calc-card">
-        <label class="form-label" style="color:white;">Loan Amount (₹)</label>
-        <input type="number" id="loanA" class="calc-input" value="1000000" oninput="doLoan()">
-        <p id="loanRes" style="color:var(--gold); font-weight:900; margin-top:12px; font-size:18px;">Monthly EMI: ₹ 10,143</p>
+        <div class="calc-grid">
+            <div class="calc-group"><label>Loan Amt</label><input type="number" id="lnA" class="calc-input" value="1000000" oninput="runEMI()"></div>
+            <div class="calc-group"><label>Rate %</label><input type="number" id="lnR" class="calc-input" value="9" oninput="runEMI()"></div>
+            <div class="calc-group"><label>Tenure (Y)</label><input type="number" id="lnY" class="calc-input" value="15" oninput="runEMI()"></div>
+        </div>
+        <div class="calc-res" id="lnOut">MONTHLY EMI: ₹ 10,143</div>
     </div>
 
     <span class="section-tag">Insurance Portfolio</span>
     <div class="grid">
-        <div class="icon-card" onclick="showPopup('Health')"><i class="fa fa-heartbeat"></i><span>Health Insurance</span></div>
-        <div class="icon-card" onclick="showPopup('Term Life')"><i class="fa fa-shield-alt"></i><span>Term Life</span></div>
-        <div class="icon-card" onclick="showPopup('Bike')"><i class="fa fa-motorcycle"></i><span>Bike Insurance</span></div>
-        <div class="icon-card" onclick="showPopup('Car')"><i class="fa fa-car"></i><span>Car Insurance</span></div>
-        <div class="icon-card" onclick="showPopup('Commercial')"><i class="fa fa-truck"></i><span>Commercial</span></div>
-        <div class="icon-card" onclick="showPopup('Fire')"><i class="fa fa-fire"></i><span>Fire Insurance</span></div>
+        <div class="service-card" onclick="openPopup('Health')"><i class="fa fa-heartbeat"></i><span>Health</span></div>
+        <div class="service-card" onclick="openPopup('Term Life')"><i class="fa fa-user-shield"></i><span>Term Life</span></div>
+        <div class="service-card" onclick="openPopup('Car')"><i class="fa fa-car"></i><span>Car</span></div>
+        <div class="service-card" onclick="openPopup('Bike')"><i class="fa fa-motorcycle"></i><span>Bike</span></div>
     </div>
 
-    <span class="section-tag">Investment & Finance</span>
+    <span class="section-tag">Finance & Investment</span>
     <div class="grid">
-        <div class="icon-card" onclick="showPopup('Mutual Funds')"><i class="fa fa-chart-pie"></i><span>Mutual Funds</span></div>
-        <div class="icon-card" onclick="showPopup('24K Gold')"><i class="fa fa-coins"></i><span>24K Gold</span></div>
-        <div class="icon-card" onclick="showPopup('Business Loan')"><i class="fa fa-building"></i><span>Business Loan</span></div>
-        <div class="icon-card" onclick="showPopup('Home Loan')"><i class="fa fa-home"></i><span>Home Loan</span></div>
+        <div class="service-card" onclick="openPopup('Mutual Funds')"><i class="fa fa-chart-pie"></i><span>Mutual Funds</span></div>
+        <div class="service-card" onclick="openPopup('24K Gold')"><i class="fa fa-coins"></i><span>24K Gold</span></div>
+        <div class="service-card" onclick="openPopup('Business')"><i class="fa fa-briefcase"></i><span>Business</span></div>
+        <div class="service-card" onclick="openPopup('Home Loan')"><i class="fa fa-home"></i><span>Home Loan</span></div>
     </div>
 </div>
 
-<div id="masterModal" class="modal">
+<div id="mModal" class="modal">
     <div class="modal-content">
-        <h2 id="modalTitle" style="margin-top:0; color:var(--navy); font-weight:900;">Enquiry</h2>
-        <div id="modalFields"></div>
-        <button onclick="submitToWA()" style="width:100%; background:var(--green); color:white; border:none; padding:18px; border-radius:10px; font-weight:900; font-size:16px; cursor:pointer;">SUBMIT TO WHATSAPP <i class="fab fa-whatsapp"></i></button>
-        <p onclick="closeModal()" style="text-align:center; color:var(--red); cursor:pointer; margin-top:20px; font-weight:800; font-size:12px;">CANCEL / CLOSE</p>
+        <h2 id="mTitle" style="color:var(--navy); font-weight:900; margin-top:0;">Enquiry</h2>
+        <div id="mFields"></div>
+        <button class="btn-submit" onclick="submitWA()">SUBMIT TO WHATSAPP <i class="fab fa-whatsapp"></i></button>
+        <p onclick="closeModal()" style="text-align:center; color:red; cursor:pointer; margin-top:20px; font-weight:800; font-size:14px;">CLOSE</p>
     </div>
 </div>
 
 <a href="https://wa.me/919080037313" class="wa-float"><i class="fab fa-whatsapp"></i></a>
 
 <footer class="footer">
-    <h2>SECUREFUTURE FINANCIALS</h2>
-    <div class="social-icons">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
+    <h2 style="font-weight: 900;">SECUREFUTURE</h2>
+    <div class="social-row">
+        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+        <a href="https://www.instagram.com" target="_blank">Instagram</a>
     </div>
-    <p style="font-size:13px; opacity:0.7;">Contact: +91 90800 37313<br>securefuturefinancials@gmail.com</p>
-    <p style="font-size:10px; margin-top:30px;">© 2026 SECUREFUTURE | ALL RIGHTS RESERVED</p>
+    <a href="mailto:securefuturefinanicials@gmail.com" class="footer-link"><i class="fa fa-envelope"></i> securefuturefinanicials@gmail.com</a>
+    <a href="tel:+919080037313" class="footer-link"><i class="fa fa-phone"></i> Call: +91 90800 37313</a>
+    <p style="font-size:11px; opacity:0.5; margin-top:30px;">© 2026 SECUREFUTURE FINANCIALS</p>
 </footer>
 
 <script>
-    let activeService = "";
-
-    function showPopup(service) {
-        activeService = service;
-        const fields = document.getElementById('modalFields');
-        document.getElementById('modalTitle').innerText = service;
+    let activeS = "";
+    function openPopup(s) {
+        activeS = s;
+        document.getElementById('mTitle').innerText = s;
+        let html = `<input id="uName" class="form-input" placeholder="Your Full Name">`;
         
-        let html = `<label class="form-label">Full Name</label><input id="fName" class="form-input" placeholder="Enter Name">`;
-        
-        if(service === 'Bike' || service === 'Car' || service === 'Commercial') {
-            html += `<label class="form-label">Registration Number</label><input id="fReg" class="form-input" placeholder="e.g. TN-01-AB-1234">`;
-            html += `<label class="form-label">Upload RC Book / Policy (Optional)</label><input type="file" class="form-input">`;
-        } else if(service === 'Term Life') {
-            html += `<label class="form-label">Age</label><input id="fAge" class="form-input" type="number">`;
-            html += `<label class="form-label">Monthly Salary</label><input id="fSal" class="form-input" type="number">`;
-            html += `<label class="form-label">Smoker?</label><select id="fSmoke" class="form-input"><option>No</option><option>Yes</option></select>`;
+        if(s === 'Bike' || s === 'Car') {
+            html += `<input id="uReg" class="form-input" placeholder="Registration Number">`;
+            html += `<label style="font-size:11px;font-weight:700;color:#666">Upload RC Book (Optional)</label><input type="file" class="form-input">`;
+        } else if(s === 'Term Life') {
+            html += `<input id="uAge" class="form-input" type="number" placeholder="Your Age">`;
+            html += `<input id="uSal" class="form-input" type="number" placeholder="Monthly Salary">`;
+            html += `<select id="uSmoke" class="form-input"><option>Non-Smoker</option><option>Smoker</option></select>`;
         } else {
-            html += `<label class="form-label">Your Requirement</label><textarea id="fReq" class="form-input" style="height:80px;" placeholder="Details..."></textarea>`;
+            html += `<textarea id="uReq" class="form-input" style="height:100px;" placeholder="Details..."></textarea>`;
         }
-        
-        fields.innerHTML = html;
-        document.getElementById('masterModal').style.display = 'block';
+        document.getElementById('mFields').innerHTML = html;
+        document.getElementById('mModal').style.display = 'block';
     }
 
-    function closeModal() { document.getElementById('masterModal').style.display = 'none'; }
+    function closeModal() { document.getElementById('mModal').style.display = 'none'; }
 
-    function submitToWA() {
-        const name = document.getElementById('fName').value;
-        if(!name) return alert("Please enter your name");
-        let text = `*New Enquiry:* ${activeService}%0A*Name:* ${name}`;
-        
-        if(document.getElementById('fReg')) text += `%0A*Reg No:* ${document.getElementById('fReg').value}`;
-        if(document.getElementById('fAge')) text += `%0A*Age:* ${document.getElementById('fAge').value}%0A*Smoker:* ${document.getElementById('fSmoke').value}`;
-        
-        window.open(`https://wa.me/919080037313?text=${text}`, '_blank');
+    function submitWA() {
+        const name = document.getElementById('uName').value;
+        if(!name) return alert("Enter Name");
+        let msg = `*Service:* ${activeS}%0A*Name:* ${name}`;
+        if(document.getElementById('uReg')) msg += `%0A*Reg No:* ${document.getElementById('uReg').value}`;
+        if(document.getElementById('uAge')) msg += `%0A*Age:* ${document.getElementById('uAge').value}%0A*Salary:* ${document.getElementById('uSal').value}%0A*Smoker:* ${document.getElementById('uSmoke').value}`;
+        window.open(`https://wa.me/919080037313?text=${msg}`, '_blank');
         closeModal();
     }
 
-    function doSIP() {
-        let amt = document.getElementById('sipA').value;
-        document.getElementById('sipRes').innerText = "Future Value: ₹ " + Math.round(amt * 232.3).toLocaleString('en-IN');
+    function runSIP() {
+        let p = document.getElementById('sipA').value, r = document.getElementById('sipR').value/12/100, n = document.getElementById('sipY').value*12;
+        let res = p * ((Math.pow(1+r, n)-1)/r) * (1+r);
+        document.getElementById('sipOut').innerText = "FUTURE VALUE: ₹ " + Math.round(res).toLocaleString('en-IN');
     }
-    function doLoan() {
-        let amt = document.getElementById('loanA').value;
-        document.getElementById('loanRes').innerText = "Monthly EMI: ₹ " + Math.round(amt * 0.01014).toLocaleString('en-IN');
+
+    function runEMI() {
+        let p = document.getElementById('lnA').value, r = document.getElementById('lnR').value/12/100, n = document.getElementById('lnY').value*12;
+        let res = p * r * Math.pow(1+r, n) / (Math.pow(1+r, n)-1);
+        document.getElementById('lnOut').innerText = "MONTHLY EMI: ₹ " + Math.round(res).toLocaleString('en-IN');
     }
 </script>
 </body>
