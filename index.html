@@ -4,110 +4,191 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SecureFuture Financials | Expert Consulting</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
     <style>
-        :root { --navy: #001f3f; --gold: #ffcc00; --white: #ffffff; --light: #f0f4f8; --green: #25D366; }
-        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); line-height: 1.6; }
-        
-        /* Header & Logo */
-        .header { background: linear-gradient(135deg, #001f3f 0%, #003366 100%); color: white; text-align: center; padding: 60px 20px; border-bottom: 6px solid var(--gold); }
-        .logo-box { width: 140px; height: 140px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        :root { --navy: #001f3f; --gold: #c5a028; --white: #ffffff; --light: #f4f7f9; --green: #25D366; --blue: #007bff; --slate: #64748b; }
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); display: flex; flex-direction: column; min-height: 100vh; }
+
+        /* HEADER - BORDER REMOVED */
+        .header { background: var(--navy); color: white; text-align: center; padding: 40px 20px; border-bottom: 5px solid var(--gold); }
+        .logo-box { width: 100px; height: 100px; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; position: relative; }
         .logo-box img { width: 100%; height: 100%; object-fit: contain; }
-        .header h1 { margin: 0; font-size: 26px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
-        .promo-quote { background: rgba(255, 255, 255, 0.1); border: 1px dashed var(--gold); padding: 15px; margin: 20px auto; border-radius: 15px; max-width: 500px; font-style: italic; color: var(--gold); font-size: 0.85rem; }
+        .header h1 { margin: 0; font-size: 24px; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; }
+        .header p { color: var(--gold); font-weight: 700; font-size: 11px; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Floating Contact Button */
-        .floating-wa { position: fixed; bottom: 20px; right: 20px; background: var(--green); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; }
+        .container { flex: 1; width: 100%; max-width: 700px; margin: 0 auto; padding: 25px 15px; }
 
-        /* Layout */
-        .container { max-width: 600px; margin: -30px auto 40px; padding: 0 15px; }
-        .btn-main { width: 100%; padding: 18px; border-radius: 12px; border: none; font-weight: 900; margin-bottom: 12px; cursor: pointer; color: white; display: block; text-align: center; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .btn-prospectus { background: #ff4757; }
-        .btn-credit { background: var(--green); }
+        /* FLOATING HELP */
+        .floating-help { position: fixed; bottom: 30px; right: 20px; background: var(--green); color: white; padding: 15px 25px; border-radius: 50px; font-weight: 800; box-shadow: 0 10px 25px rgba(0,0,0,0.2); text-decoration: none; z-index: 9999; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
-        /* Service Cards */
-        .section-title { margin: 30px 0 15px; font-size: 1.1rem; font-weight: 800; border-left: 4px solid var(--gold); padding-left: 10px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .icon-card { background: white; padding: 20px; border-radius: 15px; text-align: center; border: 1px solid #eef2f6; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .icon-card span { display: block; font-size: 2rem; margin-bottom: 8px; }
+        /* BUTTONS */
+        .btn-stack { display: flex; flex-direction: column; gap: 12px; margin-bottom: 35px; }
+        .btn-main { width: 100%; padding: 18px; border-radius: 12px; border: none; font-weight: 800; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; transition: 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .btn-credit { background: var(--green); color: white; }
+        .btn-audit { background: var(--gold); color: var(--navy); }
+        .btn-call { background: var(--blue); color: white; }
 
-        /* Calculators */
-        .calc-card { background: white; padding: 20px; border-radius: 15px; margin-bottom: 15px; border: 1px solid #eef2f6; }
-        .calc-card h4 { margin-top: 0; color: var(--navy); }
-        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
-        .result { font-weight: 900; color: #ff4757; font-size: 1.1rem; }
+        /* SECTIONS */
+        .section-tag { font-weight: 900; font-size: 13px; color: var(--slate); text-transform: uppercase; margin: 30px 0 15px; border-bottom: 2px solid #ddd; padding-bottom: 5px; display: block; }
+        .trend-card { background: white; border-radius: 20px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); cursor: pointer; border: 1px solid #eee; }
+        .trend-img { width: 100%; height: 180px; object-fit: cover; }
+        .trend-info { padding: 15px; }
 
-        footer { background: var(--navy); color: white; text-align: center; padding: 40px 20px; border-top: 6px solid var(--gold); }
+        /* CALCULATORS */
+        .calc-suite { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 35px; }
+        .calc-card { background: var(--navy); color: white; padding: 18px; border-radius: 20px; border-bottom: 4px solid var(--gold); }
+        .calc-card h4 { margin: 0 0 15px 0; font-size: 14px; text-align: center; }
+        .calc-group { margin-bottom: 12px; }
+        .calc-group label { display: block; font-size: 10px; opacity: 0.8; font-weight: 700; margin-bottom: 4px; }
+        .calc-input { width: 100%; padding: 10px; border-radius: 8px; border: none; font-size: 14px; font-weight: 700; background: rgba(255,255,255,0.1); color: white; outline: none; }
+        .res-box { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px; text-align: center; margin-top: 15px; border: 1px solid rgba(197, 160, 40, 0.3); }
+        .res-box b { font-size: 14px; color: var(--gold); display: block; }
+
+        /* GRIDS */
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .icon-card { background: white; padding: 25px 10px; border-radius: 15px; text-align: center; border: 1px solid #eee; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.02); font-size: 24px; }
+        .icon-card span { display: block; font-weight: 700; font-size: 14px; margin-top: 10px; color: var(--navy); }
+
+        /* MODAL */
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 10000; padding: 20px; }
+        .modal-content { background: white; max-width: 450px; margin: 10% auto; border-radius: 25px; padding: 30px; position: relative; }
+        .modal-h { margin: 0 0 20px; font-size: 20px; font-weight: 900; color: var(--navy); border-bottom: 3px solid var(--gold); display: inline-block; }
+        .form-input { width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 10px; margin-bottom: 15px; font-family: inherit; font-size: 14px; }
+        .btn-submit { background: var(--navy); color: white; width: 100%; padding: 15px; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; }
+
+        footer { background: var(--navy); color: white; text-align: center; padding: 40px 20px; margin-top: auto; border-top: 5px solid var(--gold); }
+        .footer-link { color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; margin: 12px 0; font-size: 14px; font-weight: 600; padding: 12px; background: rgba(255,255,255,0.05); border-radius: 10px; }
+        
+        @media (max-width: 480px) { .calc-suite { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
-<a href="https://wa.me/919080037313" class="floating-wa">💬</a>
+<a href="https://wa.me/919080037313?text=Hi, I need urgent help." class="floating-help">💬 Quick Help</a>
 
 <div class="header">
-    <div class="logo-box">
-        <img src="logo.jpg" alt="SecureFuture Logo">
-    </div>
+    <div class="logo-box"><img src="logo.jpeg" alt="SecureFuture Logo"></div>
     <h1>SECUREFUTURE FINANCIALS</h1>
-    <p style="color:var(--gold); font-weight: 800; margin-top: 5px;">Expert Consulting | Chennai & Patna</p>
-    <div class="promo-quote">"You will get all services of your choices company and best discount. So first try and decide."</div>
+    <p>Expert Consulting | Chennai & Patna</p>
 </div>
 
 <div class="container">
-    <a href="#" class="btn-main btn-prospectus">📄 DOWNLOAD PROSPECTUS</a>
-    <a href="https://www.cibil.com/freecreditscore" target="_blank" class="btn-main btn-credit">📊 FREE CREDIT SCORE</a>
+    <div class="btn-stack">
+        <button class="btn-main btn-credit" onclick="window.open('https://www.cibil.com/freecreditscore', '_blank')">📊 CHECK FREE CREDIT SCORE</button>
+        <button class="btn-main btn-audit" onclick="openLeadModal('360 Degree Financial Audit')">🚀 BOOK FREE 360° AUDIT</button>
+        <a href="tel:+919080037313" class="btn-main btn-call">📞 CALL NOW</a>
+    </div>
 
-    <div class="section-title">🛡️ Insurance Portfolio</div>
+    <span class="section-tag">Trending Insurance</span>
+    <div class="trend-card" onclick="openLeadModal('Bike Insurance')">
+        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80" class="trend-img">
+        <div class="trend-info">
+            <h3 style="margin:0">🛵 Bike & Superbike</h3>
+            <p style="font-size: 12px; color: #666; margin: 5px 0;">Zero paperwork. Instant policy issuance.</p>
+        </div>
+    </div>
+
+    <span class="section-tag">Calculators (Wealth vs Debt)</span>
+    <div class="calc-suite">
+        <div class="calc-card">
+            <h4>💰 SIP Wealth</h4>
+            <div class="calc-group"><label>Monthly SIP (₹)</label><input type="number" id="sA" class="calc-input" value="5000" oninput="cS()"></div>
+            <div class="calc-group"><label>Growth (%)</label><input type="number" id="sR" class="calc-input" value="12" oninput="cS()"></div>
+            <div class="calc-group"><label>Years</label><input type="number" id="sY" class="calc-input" value="10" oninput="cS()"></div>
+            <div class="res-box"><span style="font-size:9px;opacity:0.7">EST. WEALTH</span><b id="sO">₹ 11,61,695</b></div>
+        </div>
+        <div class="calc-card">
+            <h4>🏠 Loan EMI</h4>
+            <div class="calc-group"><label>Loan Amt (₹)</label><input type="number" id="eA" class="calc-input" value="1000000" oninput="cE()"></div>
+            <div class="calc-group"><label>Rate (%)</label><input type="number" id="eR" class="calc-input" value="9" oninput="cE()"></div>
+            <div class="calc-group"><label>Years</label><input type="number" id="eY" class="calc-input" value="15" oninput="cE()"></div>
+            <div class="res-box"><span style="font-size:9px;opacity:0.7">MONTHLY EMI</span><b id="eO">₹ 10,143</b></div>
+        </div>
+    </div>
+
+    <span class="section-tag">Insurance Portfolio</span>
     <div class="grid">
-        <div class="icon-card"><span>🏥</span>Health</div>
-        <div class="icon-card"><span>🛡️</span>Term Life</div>
-        <div class="icon-card"><span>🏍️</span>Bike</div>
-        <div class="icon-card"><span>🚛</span>Commercial</div>
+        <div class="icon-card" onclick="openLeadModal('Health Insurance')">🏥<span>Health</span></div>
+        <div class="icon-card" onclick="openLeadModal('Term Life Plan')">🛡️<span>Term Life</span></div>
+        <div class="icon-card" onclick="openLeadModal('Car Insurance')">🚗<span>Car</span></div>
+        <div class="icon-card" onclick="openLeadModal('Commercial Vehicle')">🚛<span>Commercial</span></div>
     </div>
 
-    <div class="section-title">🧮 Smart Calculators</div>
-    <div class="calc-card">
-        <h4>💰 SIP Calculator (Wealth)</h4>
-        <input type="number" id="sipAmount" placeholder="Monthly Investment" oninput="calcSIP()">
-        <p>Estimated Future Value: <span id="sipResult" class="result">₹ 0</span></p>
-    </div>
-
-    <div class="calc-card">
-        <h4>🏠 Loan EMI Calculator</h4>
-        <input type="number" id="loanAmount" placeholder="Loan Amount" oninput="calcEMI()">
-        <p>Monthly EMI: <span id="emiResult" class="result">₹ 0</span></p>
-    </div>
-
-    <div class="section-title">📈 Finance & Investment</div>
+    <span class="section-tag">Investment & Finance</span>
     <div class="grid">
-        <div class="icon-card"><span>📈</span>Mutual Funds</div>
-        <div class="icon-card"><span>🏆</span>24K Gold</div>
-        <div class="icon-card"><span>🏢</span>Business Loan</div>
-        <div class="icon-card"><span>🏠</span>Home Loan</div>
+        <div class="icon-card" onclick="openLeadModal('Mutual Funds')">📈<span>Mutual Funds</span></div>
+        <div class="icon-card" onclick="openLeadModal('24K Gold')">🏆<span>24K Gold</span></div>
+        <div class="icon-card" onclick="openLeadModal('Business Loan')">🏢<span>Business</span></div>
+        <div class="icon-card" onclick="openLeadModal('Home Loan')">🏠<span>Home Loan</span></div>
+    </div>
+</div>
+
+<div id="leadModal" class="modal">
+    <div class="modal-content">
+        <h2 id="mTitle" class="modal-h">Enquiry</h2>
+        <input type="text" id="fName" class="form-input" placeholder="Your Full Name">
+        <div id="vFields" style="display:none">
+            <input type="text" id="regNo" class="form-input" placeholder="Registration No. (e.g. TN01...)">
+        </div>
+        <div id="tFields" style="display:none">
+            <input type="number" id="tAge" class="form-input" placeholder="Your Age">
+            <select id="tSmoke" class="form-input">
+                <option value="">Are you a Smoker?</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <input type="text" id="fObj" class="form-input" placeholder="Message/Objective">
+        <button class="btn-submit" onclick="submitLead()">Submit to WhatsApp ✅</button>
+        <p onclick="closeModal()" style="text-align:center; color:red; cursor:pointer; margin-top:15px; font-weight:700;">Close</p>
     </div>
 </div>
 
 <footer>
-    <p>SECUREFUTURE FINANCIALS © 2026</p>
-    <p>Contact: +91 90800 37313</p>
+    <p style="font-weight: 800; margin-bottom: 20px;">SECUREFUTURE FINANCIALS</p>
+    <a href="mailto:securefuturefinanicials@gmail.com" class="footer-link">📧 securefuturefinanicials@gmail.com</a>
+    <a href="https://wa.me/919080037313" class="footer-link">💬 WhatsApp: 90800 37313</a>
+    <p class="copyright">SECUREFUTURE FINANCIALS © 2026</p>
 </footer>
 
 <script>
-    function calcSIP() {
-        let p = document.getElementById('sipAmount').value;
-        if(p > 0) {
-            let result = p * 232; // Simplified 10-year estimate at 12%
-            document.getElementById('sipResult').innerText = "₹ " + result.toLocaleString('en-IN');
+    let currentS = "";
+    function openLeadModal(s) {
+        currentS = s;
+        document.getElementById('mTitle').innerText = s;
+        document.getElementById('leadModal').style.display = 'block';
+        document.getElementById('vFields').style.display = (s.includes('Car') || s.includes('Bike')) ? 'block' : 'none';
+        document.getElementById('tFields').style.display = (s.includes('Term')) ? 'block' : 'none';
+    }
+    function closeModal() { document.getElementById('leadModal').style.display = 'none'; }
+    function submitLead() {
+        const name = document.getElementById('fName').value;
+        const obj = document.getElementById('fObj').value;
+        if(!name) { alert("Please enter your name"); return; }
+        let msg = `*New Inquiry*%0A*Service:* ${currentS}%0A*Name:* ${name}%0A*Note:* ${obj}`;
+        window.open(`https://wa.me/919080037313?text=${msg}`, '_blank');
+        closeModal();
+    }
+    function cS() {
+        let p = parseFloat(document.getElementById('sA').value);
+        let i = parseFloat(document.getElementById('sR').value) / 12 / 100;
+        let n = parseFloat(document.getElementById('sY').value) * 12;
+        if(p && i && n) {
+            let fv = p * ((Math.pow(1 + i, n) - 1) / i) * (1 + i);
+            document.getElementById('sO').innerText = "₹ " + Math.round(fv).toLocaleString('en-IN');
         }
     }
-    function calcEMI() {
-        let l = document.getElementById('loanAmount').value;
-        if(l > 0) {
-            let emi = (l * 0.01); // Simplified estimate
-            document.getElementById('emiResult').innerText = "₹ " + emi.toLocaleString('en-IN');
+    function cE() {
+        let p = parseFloat(document.getElementById('eA').value);
+        let r = parseFloat(document.getElementById('eR').value) / 12 / 100;
+        let n = parseFloat(document.getElementById('eY').value) * 12;
+        if(p && r && n) {
+            let emi = p * r * Math.pow(1+r, n) / (Math.pow(1+r, n) - 1);
+            document.getElementById('eO').innerText = "₹ " + Math.round(emi).toLocaleString('en-IN');
         }
     }
 </script>
-
 </body>
 </html>
