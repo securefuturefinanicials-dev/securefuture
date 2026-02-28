@@ -12,7 +12,7 @@
 
         /* HEADER - BORDER REMOVED */
         .header { background: var(--navy); color: white; text-align: center; padding: 40px 20px; border-bottom: 5px solid var(--gold); }
-        .logo-box { width: 100px; height: 100px; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; position: relative; }
+        .logo-box { width: 100px; height: 100px; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .logo-box img { width: 100%; height: 100%; object-fit: contain; }
         .header h1 { margin: 0; font-size: 24px; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; }
         .header p { color: var(--gold); font-weight: 700; font-size: 11px; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
@@ -30,16 +30,16 @@
         .btn-audit { background: var(--gold); color: var(--navy); }
         .btn-call { background: var(--blue); color: white; }
 
-        /* SECTIONS */
+        /* TRENDING SECTION */
         .section-tag { font-weight: 900; font-size: 13px; color: var(--slate); text-transform: uppercase; margin: 30px 0 15px; border-bottom: 2px solid #ddd; padding-bottom: 5px; display: block; }
         .trend-card { background: white; border-radius: 20px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); cursor: pointer; border: 1px solid #eee; }
-        .trend-img { width: 100%; height: 180px; object-fit: cover; }
+        .trend-img { width: 100%; height: 200px; object-fit: cover; }
         .trend-info { padding: 15px; }
 
         /* CALCULATORS */
         .calc-suite { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 35px; }
         .calc-card { background: var(--navy); color: white; padding: 18px; border-radius: 20px; border-bottom: 4px solid var(--gold); }
-        .calc-card h4 { margin: 0 0 15px 0; font-size: 14px; text-align: center; }
+        .calc-card h4 { margin: 0 0 15px; font-size: 14px; text-align: center; color: var(--gold); }
         .calc-group { margin-bottom: 12px; }
         .calc-group label { display: block; font-size: 10px; opacity: 0.8; font-weight: 700; margin-bottom: 4px; }
         .calc-input { width: 100%; padding: 10px; border-radius: 8px; border: none; font-size: 14px; font-weight: 700; background: rgba(255,255,255,0.1); color: white; outline: none; }
@@ -48,7 +48,7 @@
 
         /* GRIDS */
         .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        .icon-card { background: white; padding: 25px 10px; border-radius: 15px; text-align: center; border: 1px solid #eee; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.02); font-size: 24px; }
+        .icon-card { background: white; padding: 25px 10px; border-radius: 15px; text-align: center; border: 1px solid #eee; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
         .icon-card span { display: block; font-weight: 700; font-size: 14px; margin-top: 10px; color: var(--navy); }
 
         /* MODAL */
@@ -66,7 +66,7 @@
 </head>
 <body>
 
-<a href="https://wa.me/919080037313?text=Hi, I need urgent help." class="floating-help">💬 Quick Help</a>
+<a href="https://wa.me/919080037313?text=Hi, I need urgent help with my financial query." class="floating-help">💬 Quick Help</a>
 
 <div class="header">
     <div class="logo-box"><img src="logo.jpeg" alt="SecureFuture Logo"></div>
@@ -95,15 +95,15 @@
         <div class="calc-card">
             <h4>💰 SIP Wealth</h4>
             <div class="calc-group"><label>Monthly SIP (₹)</label><input type="number" id="sA" class="calc-input" value="5000" oninput="cS()"></div>
-            <div class="calc-group"><label>Growth (%)</label><input type="number" id="sR" class="calc-input" value="12" oninput="cS()"></div>
-            <div class="calc-group"><label>Years</label><input type="number" id="sY" class="calc-input" value="10" oninput="cS()"></div>
+            <div class="calc-group"><label>Growth Rate (%)</label><input type="number" id="sR" class="calc-input" value="12" oninput="cS()"></div>
+            <div class="calc-group"><label>Tenure (Yrs)</label><input type="number" id="sY" class="calc-input" value="10" oninput="cS()"></div>
             <div class="res-box"><span style="font-size:9px;opacity:0.7">EST. WEALTH</span><b id="sO">₹ 11,61,695</b></div>
         </div>
         <div class="calc-card">
             <h4>🏠 Loan EMI</h4>
-            <div class="calc-group"><label>Loan Amt (₹)</label><input type="number" id="eA" class="calc-input" value="1000000" oninput="cE()"></div>
+            <div class="calc-group"><label>Loan Amount (₹)</label><input type="number" id="eA" class="calc-input" value="1000000" oninput="cE()"></div>
             <div class="calc-group"><label>Rate (%)</label><input type="number" id="eR" class="calc-input" value="9" oninput="cE()"></div>
-            <div class="calc-group"><label>Years</label><input type="number" id="eY" class="calc-input" value="15" oninput="cE()"></div>
+            <div class="calc-group"><label>Tenure (Yrs)</label><input type="number" id="eY" class="calc-input" value="15" oninput="cE()"></div>
             <div class="res-box"><span style="font-size:9px;opacity:0.7">MONTHLY EMI</span><b id="eO">₹ 10,143</b></div>
         </div>
     </div>
@@ -132,22 +132,14 @@
         <div id="vFields" style="display:none">
             <input type="text" id="regNo" class="form-input" placeholder="Registration No. (e.g. TN01...)">
         </div>
-        <div id="tFields" style="display:none">
-            <input type="number" id="tAge" class="form-input" placeholder="Your Age">
-            <select id="tSmoke" class="form-input">
-                <option value="">Are you a Smoker?</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
-        </div>
-        <input type="text" id="fObj" class="form-input" placeholder="Message/Objective">
+        <input type="text" id="fObj" class="form-input" placeholder="Objective/Message">
         <button class="btn-submit" onclick="submitLead()">Submit to WhatsApp ✅</button>
         <p onclick="closeModal()" style="text-align:center; color:red; cursor:pointer; margin-top:15px; font-weight:700;">Close</p>
     </div>
 </div>
 
 <footer>
-    <p style="font-weight: 800; margin-bottom: 20px;">SECUREFUTURE FINANCIALS</p>
+    <p style="font-weight: 800; margin-bottom: 20px; font-size: 16px;">SECUREFUTURE FINANCIALS</p>
     <a href="mailto:securefuturefinanicials@gmail.com" class="footer-link">📧 securefuturefinanicials@gmail.com</a>
     <a href="https://wa.me/919080037313" class="footer-link">💬 WhatsApp: 90800 37313</a>
     <p class="copyright">SECUREFUTURE FINANCIALS © 2026</p>
@@ -160,14 +152,13 @@
         document.getElementById('mTitle').innerText = s;
         document.getElementById('leadModal').style.display = 'block';
         document.getElementById('vFields').style.display = (s.includes('Car') || s.includes('Bike')) ? 'block' : 'none';
-        document.getElementById('tFields').style.display = (s.includes('Term')) ? 'block' : 'none';
     }
     function closeModal() { document.getElementById('leadModal').style.display = 'none'; }
     function submitLead() {
         const name = document.getElementById('fName').value;
         const obj = document.getElementById('fObj').value;
         if(!name) { alert("Please enter your name"); return; }
-        let msg = `*New Inquiry*%0A*Service:* ${currentS}%0A*Name:* ${name}%0A*Note:* ${obj}`;
+        let msg = `*Inquiry:* ${currentS}%0A*Name:* ${name}%0A*Note:* ${obj}`;
         window.open(`https://wa.me/919080037313?text=${msg}`, '_blank');
         closeModal();
     }
