@@ -18,7 +18,7 @@
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { font-family: 'Inter', sans-serif; margin: 0; background: var(--light); color: var(--navy); display: flex; flex-direction: column; min-height: 100vh; }
 
-        /* FIXED SQUARE LOGO & HEADER */
+        /* FIXED DIGITAL LOGO & HEADER */
         .header { 
             background: var(--gradient); 
             color: white; 
@@ -33,22 +33,24 @@
             align-items: center;
             margin-bottom: 15px;
         }
-      <div class="logo-box" style="background-color: white; display: flex; align-items: center; justify-content: center; position: relative;">
-    <img src="logo.jpeg" 
-         alt="SecureFuture" 
-         style="width: 100%; height: 100%; object-fit: contain; position: absolute; z-index: 2;"
-         onerror="this.style.display='none';">
-    <span style="color: #001f3f; font-weight: 900; font-size: 40px; z-index: 1;">SF</span>
-</div>
-        /* LOGO IMAGE FIX */
-        .logo-box img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: contain; /* Shows full logo without cropping */
-            padding: 5px; /* Slight breathing room inside square */
-        }
         
-        .header h1 { margin: 10px 0 0; font-size: 24px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
+        /* THE SIMPLE LOGO FIX: No image file needed */
+        .simple-logo {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border: 4px solid var(--gold);
+            border-radius: 15px; /* Square with smooth corners */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        .logo-text-top { color: var(--navy); font-size: 38px; font-weight: 900; line-height: 1; }
+        .logo-text-bottom { color: var(--gold); font-size: 10px; font-weight: 900; background: var(--navy); padding: 2px 5px; border-radius: 4px; margin-top: 2px; }
+        
+        .header h1 { margin: 15px 0 0; font-size: 24px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
         
         .promo-quote {
             background: rgba(255, 255, 255, 0.1);
@@ -79,7 +81,7 @@
         .btn-refer { background: #5865F2; color: white; }
         .btn-audit { background: var(--gold); color: var(--navy); }
 
-        /* TRENDING */
+        /* SECTIONS */
         .section-tag { font-weight: 900; font-size: 12px; color: #666; text-transform: uppercase; margin: 30px 0 15px; display: flex; align-items: center; gap: 10px; }
         .section-tag::after { content: ""; flex: 1; height: 1px; background: #ddd; }
         
@@ -99,7 +101,6 @@
         .icon-card { background: white; padding: 25px 10px; border-radius: 15px; text-align: center; border: 1px solid #eee; cursor: pointer; }
         .icon-card span { display: block; font-weight: 800; font-size: 14px; margin-top: 10px; color: var(--navy); }
 
-        /* FOOTER */
         footer { background: var(--navy); color: white; text-align: center; padding: 40px 20px; border-top: 6px solid var(--gold); }
         .footer-link { color: white; text-decoration: none; display: block; padding: 12px; background: rgba(255,255,255,0.05); border-radius: 10px; margin-bottom: 10px; font-weight: 700; font-size: 14px; }
 
@@ -112,8 +113,9 @@
 
 <div class="header">
     <div class="logo-container">
-        <div class="logo-box">
-            <img src="logo.jpeg" alt="SecureFuture Logo" onerror="this.src='https://via.placeholder.com/150/FFFFFF/001f3f?text=SF+LOGO'">
+        <div class="simple-logo">
+            <div class="logo-text-top">SF</div>
+            <div class="logo-text-bottom">SECURE</div>
         </div>
     </div>
     <h1>SECUREFUTURE FINANCIALS</h1>
@@ -172,15 +174,14 @@
     <div class="modal-content">
         <h3 id="mTitle" style="margin-top:0; color:var(--navy);">Inquiry</h3>
         <input type="text" id="fName" class="form-input" placeholder="Your Name">
-        <input type="text" id="fReq" class="form-input" placeholder="Specific Requirement">
-        <button style="background:var(--navy); color:white; width:100%; padding:18px; border:none; border-radius:15px; font-weight:900; cursor:pointer;" onclick="submitLead()">Submit to WhatsApp ✅</button>
-        <p onclick="closeModal()" style="text-align:center; color:red; cursor:pointer; margin-top:15px; font-weight:700; font-size:14px;">Cancel</p>
+        <input type="text" id="fReq" class="form-input" placeholder="Requirement">
+        <button style="background:var(--navy); color:white; width:100%; padding:18px; border:none; border-radius:15px; font-weight:900; cursor:pointer;" onclick="submitLead()">Submit ✅</button>
+        <p onclick="closeModal()" style="text-align:center; color:red; cursor:pointer; margin-top:15px; font-weight:700;">Cancel</p>
     </div>
 </div>
 
 <footer>
     <p style="font-weight: 900; font-size: 16px; margin-bottom: 20px;">SECUREFUTURE FINANCIALS</p>
-    <a href="mailto:securefuturefinanicials@gmail.com" class="footer-link">📧 Email Support</a>
     <a href="https://wa.me/919080037313" class="footer-link">💬 WhatsApp: 90800 37313</a>
     <p style="font-size: 11px; opacity: 0.5; margin-top: 20px;">© 2026 SECUREFUTURE FINANCIALS</p>
 </footer>
@@ -197,9 +198,7 @@
     function submitLead() {
         const name = document.getElementById('fName').value;
         const req = document.getElementById('fReq').value;
-        if(!name) { alert("Please enter your name"); return; }
-        let msg = `*New Inquiry*%0A*Service:* ${currentS}%0A*Name:* ${name}%0A*Requirement:* ${req}`;
-        window.open(`https://wa.me/919080037313?text=${msg}`, '_blank');
+        window.open(`https://wa.me/919080037313?text=*Inquiry:* ${currentS}%0A*Name:* ${name}%0A*Req:* ${req}`, '_blank');
         closeModal();
     }
     function cS() {
@@ -213,4 +212,3 @@
 </script>
 </body>
 </html>
-
